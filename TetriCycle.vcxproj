@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{CCB99DB6-8338-4391-8129-7F56BB131E62}</ProjectGuid>
+    <Keyword>MakeFileProj</Keyword>
+    <ProjectName>TetriCycle</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Debug\</IntDir>
+    <NMakeBuildCommandLine Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">make -r 2&gt;&amp;1 | sed -e ’s/(.[a-zA-Z]+):([0-9]+):/1(2):/’</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">make -r 2&gt;&amp;1 | sed -e ’s/(.[a-zA-Z]+):([0-9]+):/1(2):/’</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">make clean</NMakeCleanCommandLine>
+    <NMakeOutput Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">TetriCycle.dol</NMakeOutput>
+    <NMakePreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">WIN32;_DEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+    <NMakeIncludeSearchPath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">L:\docs\wii\projects\mvs\TetriCycle\code\include;L:\docs\wii\projects\mvs\TetriCycle\code\include\powerups;L:\docs\wii\projects\mvs\TetriCycle\code\include\defines;L:\docs\wii\projects\mvs\TetriCycle\ext\libwiigui;L:\docs\wii\projects\mvs\TetriCycle\ext\libwiigui\libwiigui;C:\devkitPro\libogc\include;C:\devkitPro\devkitPPC\include;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
+    <NMakeForcedIncludes Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(NMakeForcedIncludes)</NMakeForcedIncludes>
+    <NMakeAssemblySearchPath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(NMakeAssemblySearchPath)</NMakeAssemblySearchPath>
+    <NMakeForcedUsingAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(NMakeForcedUsingAssemblies)</NMakeForcedUsingAssemblies>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Debug\</IntDir>
+    <NMakeBuildCommandLine Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">make -r 2&gt;&amp;1 | sed -e ’s/(.[a-zA-Z]+):([0-9]+):/1(2):/’</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">make -r 2&gt;&amp;1 | sed -e ’s/(.[a-zA-Z]+):([0-9]+):/1(2):/’</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">make clean</NMakeCleanCommandLine>
+    <NMakeOutput Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">TetriCycle.dol</NMakeOutput>
+    <NMakePreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">WIN32;NDEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+    <NMakeIncludeSearchPath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">L:\docs\wii\projects\mvs\TetriCycle\code\include;L:\docs\wii\projects\mvs\TetriCycle\code\include\powerups;L:\docs\wii\projects\mvs\TetriCycle\code\include\defines;L:\docs\wii\projects\mvs\TetriCycle\ext\libwiigui;L:\docs\wii\projects\mvs\TetriCycle\ext\libwiigui\libwiigui;C:\devkitPro\libogc\include;C:\devkitPro\devkitPPC\include;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
+    <NMakeForcedIncludes Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(NMakeForcedIncludes)</NMakeForcedIncludes>
+    <NMakeAssemblySearchPath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(NMakeAssemblySearchPath)</NMakeAssemblySearchPath>
+    <NMakeForcedUsingAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(NMakeForcedUsingAssemblies)</NMakeForcedUsingAssemblies>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="code\source\globals.cpp" />
+    <ClCompile Include="code\source\main.cpp" />
+    <ClCompile Include="code\source\mt.c" />
+    <ClCompile Include="code\source\Player.cpp" />
+    <ClCompile Include="code\source\Powerup.cpp" />
+    <ClCompile Include="code\source\PowerupUtils.cpp" />
+    <ClCompile Include="code\source\tcyc_input.cpp" />
+    <ClCompile Include="code\source\tcyc_menu.cpp" />
+    <ClCompile Include="code\source\powerups\PowerupBigHand.cpp" />
+    <ClCompile Include="code\source\powerups\PowerupLinePiece.cpp" />
+    <ClCompile Include="code\source\powerups\PowerupReverse.cpp" />
+    <ClCompile Include="code\source\powerups\PowerupShrinkRay.cpp" />
+    <ClCompile Include="ext\libwiigui\audio.cpp" />
+    <ClCompile Include="ext\libwiigui\demo.cpp" />
+    <ClCompile Include="ext\libwiigui\filebrowser.cpp" />
+    <ClCompile Include="ext\libwiigui\FreeTypeGX.cpp" />
+    <ClCompile Include="ext\libwiigui\input.cpp" />
+    <ClCompile Include="ext\libwiigui\menu.cpp" />
+    <ClCompile Include="ext\libwiigui\Metaphrasis.cpp" />
+    <ClCompile Include="ext\libwiigui\oggplayer.c" />
+    <ClCompile Include="ext\libwiigui\pngu.c" />
+    <ClCompile Include="ext\libwiigui\video.cpp" />
+    <ClCompile Include="ext\libwiigui\libwiigui\gui_button.cpp" />
+    <ClCompile Include="ext\libwiigui\libwiigui\gui_element.cpp" />
+    <ClCompile Include="ext\libwiigui\libwiigui\gui_filebrowser.cpp" />
+    <ClCompile Include="ext\libwiigui\libwiigui\gui_image.cpp" />
+    <ClCompile Include="ext\libwiigui\libwiigui\gui_imagedata.cpp" />
+    <ClCompile Include="ext\libwiigui\libwiigui\gui_keyboard.cpp" />
+    <ClCompile Include="ext\libwiigui\libwiigui\gui_optionbrowser.cpp" />
+    <ClCompile Include="ext\libwiigui\libwiigui\gui_sound.cpp" />
+    <ClCompile Include="ext\libwiigui\libwiigui\gui_text.cpp" />
+    <ClCompile Include="ext\libwiigui\libwiigui\gui_trigger.cpp" />
+    <ClCompile Include="ext\libwiigui\libwiigui\gui_window.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="code\include\Color.h" />
+    <ClInclude Include="code\include\main.h" />
+    <ClInclude Include="code\include\mt.h" />
+    <ClInclude Include="code\include\Options.h" />
+    <ClInclude Include="code\include\Player.h" />
+    <ClInclude Include="code\include\Powerup.h" />
+    <ClInclude Include="code\include\PowerupUtils.h" />
+    <ClInclude Include="code\include\Profile.h" />
+    <ClInclude Include="code\include\tcyc_input.h" />
+    <ClInclude Include="code\include\tcyc_menu.h" />
+    <ClInclude Include="code\include\TetrisPiece.h" />
+    <ClInclude Include="code\include\powerups\PowerupBigHand.h" />
+    <ClInclude Include="code\include\powerups\PowerupLinePiece.h" />
+    <ClInclude Include="code\include\powerups\PowerupReverse.h" />
+    <ClInclude Include="code\include\powerups\PowerupShrinkRay.h" />
+    <ClInclude Include="code\include\defines\defines.h" />
+    <ClInclude Include="code\include\defines\defines_Player.h" />
+    <ClInclude Include="code\include\defines\defines_Powerup.h" />
+    <ClInclude Include="ext\libwiigui\audio.h" />
+    <ClInclude Include="ext\libwiigui\demo.h" />
+    <ClInclude Include="ext\libwiigui\filebrowser.h" />
+    <ClInclude Include="ext\libwiigui\filelist.h" />
+    <ClInclude Include="ext\libwiigui\FreeTypeGX.h" />
+    <ClInclude Include="ext\libwiigui\input.h" />
+    <ClInclude Include="ext\libwiigui\menu.h" />
+    <ClInclude Include="ext\libwiigui\Metaphrasis.h" />
+    <ClInclude Include="ext\libwiigui\oggplayer.h" />
+    <ClInclude Include="ext\libwiigui\pngu.h" />
+    <ClInclude Include="ext\libwiigui\video.h" />
+    <ClInclude Include="ext\libwiigui\libwiigui\gui.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Makefile" />
+    <None Include="readme.txt" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

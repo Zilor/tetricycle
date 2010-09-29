@@ -1,0 +1,1 @@
+L:\docs\wii\projects\mvs\TetriCycle\code\include;L:\docs\wii\projects\mvs\TetriCycle\code\include\powerups;L:\docs\wii\projects\mvs\TetriCycle\code\include\defines;L:\docs\wii\projects\mvs\TetriCycle\ext\libwiigui;L:\docs\wii\projects\mvs\TetriCycle\ext\libwiigui\libwiigui;
