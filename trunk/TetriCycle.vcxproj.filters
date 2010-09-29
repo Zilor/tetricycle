@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files\powerups">
+      <UniqueIdentifier>{c661976d-e30c-4902-9b02-e4ec2c29cbc5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Header Files\powerups">
+      <UniqueIdentifier>{40ab0e8b-1855-4eec-a511-8a84007f5e4b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\defines">
+      <UniqueIdentifier>{81d65e63-7bbd-4f0c-afce-c1239ca7b0ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="ext">
+      <UniqueIdentifier>{e3a96a16-0a19-4358-90d3-52fc8d6b0dd1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ext\libwiigui">
+      <UniqueIdentifier>{f461f81a-5c76-4e54-b627-8b5a685ec207}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ext\libwiigui\libwiigui">
+      <UniqueIdentifier>{d508b3d6-fd39-40a2-b7d7-a5abe3b11150}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="code\source\globals.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="code\source\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="code\source\mt.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="code\source\Player.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="code\source\Powerup.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="code\source\PowerupUtils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="code\source\tcyc_input.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="code\source\tcyc_menu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\libwiigui\audio.cpp">
+      <Filter>ext\libwiigui</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\libwiigui\demo.cpp">
+      <Filter>ext\libwiigui</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\libwiigui\filebrowser.cpp">
+      <Filter>ext\libwiigui</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\libwiigui\FreeTypeGX.cpp">
+      <Filter>ext\libwiigui</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\libwiigui\input.cpp">
+      <Filter>ext\libwiigui</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\libwiigui\menu.cpp">
+      <Filter>ext\libwiigui</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\libwiigui\Metaphrasis.cpp">
+      <Filter>ext\libwiigui</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\libwiigui\oggplayer.c">
+      <Filter>ext\libwiigui</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\libwiigui\pngu.c">
+      <Filter>ext\libwiigui</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\libwiigui\video.cpp">
+      <Filter>ext\libwiigui</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\libwiigui\libwiigui\gui_button.cpp">
+      <Filter>ext\libwiigui\libwiigui</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\libwiigui\libwiigui\gui_element.cpp">
+      <Filter>ext\libwiigui\libwiigui</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\libwiigui\libwiigui\gui_filebrowser.cpp">
+      <Filter>ext\libwiigui\libwiigui</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\libwiigui\libwiigui\gui_image.cpp">
+      <Filter>ext\libwiigui\libwiigui</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\libwiigui\libwiigui\gui_imagedata.cpp">
+      <Filter>ext\libwiigui\libwiigui</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\libwiigui\libwiigui\gui_keyboard.cpp">
+      <Filter>ext\libwiigui\libwiigui</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\libwiigui\libwiigui\gui_optionbrowser.cpp">
+      <Filter>ext\libwiigui\libwiigui</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\libwiigui\libwiigui\gui_sound.cpp">
+      <Filter>ext\libwiigui\libwiigui</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\libwiigui\libwiigui\gui_text.cpp">
+      <Filter>ext\libwiigui\libwiigui</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\libwiigui\libwiigui\gui_trigger.cpp">
+      <Filter>ext\libwiigui\libwiigui</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\libwiigui\libwiigui\gui_window.cpp">
+      <Filter>ext\libwiigui\libwiigui</Filter>
+    </ClCompile>
+    <ClCompile Include="code\source\powerups\PowerupBigHand.cpp">
+      <Filter>Source Files\powerups</Filter>
+    </ClCompile>
+    <ClCompile Include="code\source\powerups\PowerupLinePiece.cpp">
+      <Filter>Source Files\powerups</Filter>
+    </ClCompile>
+    <ClCompile Include="code\source\powerups\PowerupReverse.cpp">
+      <Filter>Source Files\powerups</Filter>
+    </ClCompile>
+    <ClCompile Include="code\source\powerups\PowerupShrinkRay.cpp">
+      <Filter>Source Files\powerups</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="code\include\Color.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="code\include\main.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="code\include\mt.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="code\include\Options.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="code\include\Player.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="code\include\Powerup.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="code\include\PowerupUtils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="code\include\Profile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="code\include\tcyc_input.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="code\include\tcyc_menu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="code\include\TetrisPiece.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="code\include\defines\defines.h">
+      <Filter>Header Files\defines</Filter>
+    </ClInclude>
+    <ClInclude Include="code\include\defines\defines_Player.h">
+      <Filter>Header Files\defines</Filter>
+    </ClInclude>
+    <ClInclude Include="code\include\defines\defines_Powerup.h">
+      <Filter>Header Files\defines</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\libwiigui\audio.h">
+      <Filter>ext\libwiigui</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\libwiigui\demo.h">
+      <Filter>ext\libwiigui</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\libwiigui\filebrowser.h">
+      <Filter>ext\libwiigui</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\libwiigui\filelist.h">
+      <Filter>ext\libwiigui</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\libwiigui\FreeTypeGX.h">
+      <Filter>ext\libwiigui</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\libwiigui\input.h">
+      <Filter>ext\libwiigui</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\libwiigui\menu.h">
+      <Filter>ext\libwiigui</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\libwiigui\Metaphrasis.h">
+      <Filter>ext\libwiigui</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\libwiigui\oggplayer.h">
+      <Filter>ext\libwiigui</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\libwiigui\pngu.h">
+      <Filter>ext\libwiigui</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\libwiigui\video.h">
+      <Filter>ext\libwiigui</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\libwiigui\libwiigui\gui.h">
+      <Filter>ext\libwiigui\libwiigui</Filter>
+    </ClInclude>
+    <ClInclude Include="code\include\powerups\PowerupBigHand.h">
+      <Filter>Header Files\powerups</Filter>
+    </ClInclude>
+    <ClInclude Include="code\include\powerups\PowerupLinePiece.h">
+      <Filter>Header Files\powerups</Filter>
+    </ClInclude>
+    <ClInclude Include="code\include\powerups\PowerupReverse.h">
+      <Filter>Header Files\powerups</Filter>
+    </ClInclude>
+    <ClInclude Include="code\include\powerups\PowerupShrinkRay.h">
+      <Filter>Header Files\powerups</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Makefile" />
+    <None Include="readme.txt" />
+  </ItemGroup>
+</Project>

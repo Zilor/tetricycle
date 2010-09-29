@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<app version="1">
+  <name>TetriCycle</name>
+  <version>0.6b</version>
+  <coder>calvinss4</coder>
+  <short_description>Cylindrical Tetris!</short_description>
+  <long_description>
+See the official site for full details:
+http://www.wiibrew.org/wiki/TetriCycle
+
+changelog:
+----------
+v0.6b
+  * 6th Release: 8/19/10
+  * Added sound FX.
+  * Added powerups to multiplayer. Please enjoy!
+  * This game will be open sourced soon, at which point you can add your own powerups.
+
+v0.5b
+  * 5th Release: 7/26/10
+  * Handicap options (for a more competitive multiplayer experience)
+  * Editable playfield (width, scale, position, cylindrical angle)
+
+v0.4b
+  * 4th Release: 7/19/10
+  * Shadow option -- see where the current piece will drop.
+  * Preview option -- see what the next piece will be.
+  * Multiplayer looks better. Each playfield is drawn from the same perspective, but with a shifted viewport.
+
+v0.3b
+  * 3rd Release: 4/5/10
+  * Better menus!
+  * Ability to reverse direction in which Tetris cylinder rotates.
+
+v0.2b
+  * 2nd Release: 12/14/09
+  * Added support for Nunchuck + Wii Remote and Wii Remote Horizontal.
+  * Added support for up to 4 players.
+
+credits:
+--------
+* Thanks to DesktopMan for sharing his source:
+  http://www.wiibrew.org/wiki/Tetris_Wii
+
+* Thanks to Sonicdude41 for the idea of "Tetris on a Cylindrical Surface".
+  </long_description>
+</app>
