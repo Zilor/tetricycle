@@ -1,0 +1,7 @@
+= Official Wiki =
+
+http://www.wiibrew.org/wiki/TetriCycle
+
+= Documentation =
+
+http://www.tetricycle.com/doxygen/
