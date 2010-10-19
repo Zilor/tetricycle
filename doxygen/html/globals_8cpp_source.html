@@ -62,32 +62,33 @@
 <a name="l00033"></a><a class="code" href="tcyc__menu_8cpp.html#a9b98d346a83a656452ae71c9138ae3f8">00033</a> <a class="code" href="class_player.html" title="This class represents a player.">Player</a> *<a class="code" href="globals_8cpp.html#a9b98d346a83a656452ae71c9138ae3f8" title="the player instances">g_players</a>; <span class="comment">// the player instances</span>
 <a name="l00034"></a><a class="code" href="tcyc__menu_8cpp.html#aaa578ed87b2e7cac5a285e425f2165ad">00034</a> MODPlay <a class="code" href="globals_8cpp.html#aaa578ed87b2e7cac5a285e425f2165ad" title="used for playing the game music">g_modPlay</a>; <span class="comment">// used for playing the game music</span>
 <a name="l00035"></a><a class="code" href="tcyc__menu_8cpp.html#ab826c688dcdfd80ac8832a9529d01bb7">00035</a> <span class="keywordtype">bool</span> <a class="code" href="globals_8cpp.html#ab826c688dcdfd80ac8832a9529d01bb7" title="true when editing the playfield">g_isEditMode</a> = <span class="keyword">false</span>; <span class="comment">// true when editing the playfield</span>
-<a name="l00036"></a><a class="code" href="tcyc__menu_8cpp.html#af7b5a2e89ea60ab5d6574180c305ce89">00036</a> <span class="keywordtype">int</span> <a class="code" href="globals_8cpp.html#af7b5a2e89ea60ab5d6574180c305ce89" title="the current menu state">g_tcycMenu</a>; <span class="comment">// the current menu state</span>
-<a name="l00037"></a><a class="code" href="_player_8cpp.html#a58d8befc3355f9d0dffa6944e8d550fa">00037</a> Mtx <a class="code" href="globals_8cpp.html#a58d8befc3355f9d0dffa6944e8d550fa" title="the global view matrix">g_view</a>; <span class="comment">// the global view matrix</span>
-<a name="l00038"></a><a class="code" href="globals_8cpp.html#a731650c2757d094e43a7513684e4f1b8">00038</a> vec3w_t <a class="code" href="tcyc__input_8h.html#a731650c2757d094e43a7513684e4f1b8" title="wiimote acceleration data">g_wiiacc</a>[MAX_PLAYERS];     <span class="comment">// wiimote acceleration data</span>
-<a name="l00039"></a><a class="code" href="globals_8cpp.html#a3d5b6dfa3f2d803ee9b77f8919be27f5">00039</a> expansion_t <a class="code" href="tcyc__input_8h.html#a3d5b6dfa3f2d803ee9b77f8919be27f5" title="wiimote expansion-controller data">g_wiiexp</a>[MAX_PLAYERS]; <span class="comment">// wiimote expansion-controller data</span>
-<a name="l00040"></a><a class="code" href="globals_8cpp.html#a8f018a789a2edb2101708367d45aae31">00040</a> <span class="keywordtype">int</span> <a class="code" href="defines___powerup_8h.html#a8f018a789a2edb2101708367d45aae31" title="The total number of powerup classes (determined at runtime).">g_totalPowerups</a>; <span class="comment">// the total number of unique powerups</span>
-<a name="l00041"></a>00041 
-<a name="l00042"></a>00042 <span class="comment">// gradients for coloring the face of a tetris piece block</span>
-<a name="l00043"></a><a class="code" href="main_8cpp.html#af0520b6dcd82a233e4fd3989b11a74d5">00043</a> <a class="code" href="struct_color_gradient.html" title="A color gradient for coloring the face of a tetris piece block.">ColorGradient</a> g_cubeGradients[COLOR_ID_MAX] = 
-<a name="l00044"></a>00044 {
-<a name="l00045"></a>00045   {{255, 255, 64, 255}, {128, 128, 0, 255}, {64, 64, 0, 255}},  <span class="comment">// yellow</span>
-<a name="l00046"></a>00046   {{64, 255, 255, 255}, {0, 128, 128, 255}, {0, 64, 64, 255}},  <span class="comment">// cyan</span>
-<a name="l00047"></a>00047   {{64, 255, 64, 255}, {0, 128, 0, 255}, {0, 64, 0, 255}},      <span class="comment">// green</span>
-<a name="l00048"></a>00048   {{255, 64, 64, 255}, {128, 0, 0, 255}, {64, 0, 0, 255}},      <span class="comment">// red</span>
-<a name="l00049"></a>00049   {{255, 128, 64, 255}, {128, 64, 0, 255}, {64, 32, 0, 255}},   <span class="comment">// orange</span>
-<a name="l00050"></a>00050   {{64, 64, 255, 255}, {0, 0, 128, 255}, {0, 0, 64, 255}},      <span class="comment">// blue</span>
-<a name="l00051"></a>00051   {{255, 64, 255, 255}, {128, 0, 128, 255}, {64, 0, 64, 255}},  <span class="comment">// magenta</span>
-<a name="l00052"></a>00052   {{100, 100, 100, 255}, {50, 50, 50, 255}, {25, 25, 25, 255}}, <span class="comment">// dead color</span>
-<a name="l00053"></a>00053   {{0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}}                    <span class="comment">// base color</span>
-<a name="l00054"></a>00054   <span class="comment">//{{200, 200, 200, 255}, {128, 128, 128, 255}, {64, 64, 64, 255}}, // gray</span>
-<a name="l00055"></a>00055 };
-<a name="l00056"></a>00056 
-<a name="l00057"></a>00057 <span class="comment">//void (*reload)() = (void(*)())0x90000020;</span>
-<a name="l00058"></a>00058 <span class="comment">//void (*reloadGecko)() = (void(*)())0x80001800;</span>
+<a name="l00036"></a><a class="code" href="tcyc__menu_8cpp.html#a636721efce9e6bebd8e60d4c6e596778">00036</a> <span class="keywordtype">bool</span> <a class="code" href="globals_8cpp.html#a636721efce9e6bebd8e60d4c6e596778" title="classic mode">g_isClassicMode</a> = <span class="keyword">false</span>; <span class="comment">// classic mode</span>
+<a name="l00037"></a><a class="code" href="tcyc__menu_8cpp.html#af7b5a2e89ea60ab5d6574180c305ce89">00037</a> <span class="keywordtype">int</span> <a class="code" href="globals_8cpp.html#af7b5a2e89ea60ab5d6574180c305ce89" title="the current menu state">g_tcycMenu</a>; <span class="comment">// the current menu state</span>
+<a name="l00038"></a><a class="code" href="_player_8cpp.html#a58d8befc3355f9d0dffa6944e8d550fa">00038</a> Mtx <a class="code" href="globals_8cpp.html#a58d8befc3355f9d0dffa6944e8d550fa" title="the global view matrix">g_view</a>; <span class="comment">// the global view matrix</span>
+<a name="l00039"></a><a class="code" href="globals_8cpp.html#a731650c2757d094e43a7513684e4f1b8">00039</a> vec3w_t <a class="code" href="tcyc__input_8h.html#a731650c2757d094e43a7513684e4f1b8" title="wiimote acceleration data">g_wiiacc</a>[MAX_PLAYERS];     <span class="comment">// wiimote acceleration data</span>
+<a name="l00040"></a><a class="code" href="globals_8cpp.html#a3d5b6dfa3f2d803ee9b77f8919be27f5">00040</a> expansion_t <a class="code" href="tcyc__input_8h.html#a3d5b6dfa3f2d803ee9b77f8919be27f5" title="wiimote expansion-controller data">g_wiiexp</a>[MAX_PLAYERS]; <span class="comment">// wiimote expansion-controller data</span>
+<a name="l00041"></a><a class="code" href="globals_8cpp.html#a8f018a789a2edb2101708367d45aae31">00041</a> <span class="keywordtype">int</span> <a class="code" href="defines___powerup_8h.html#a8f018a789a2edb2101708367d45aae31" title="The total number of powerup classes (determined at runtime).">g_totalPowerups</a>; <span class="comment">// the total number of unique powerups</span>
+<a name="l00042"></a>00042 
+<a name="l00043"></a>00043 <span class="comment">// gradients for coloring the face of a tetris piece block</span>
+<a name="l00044"></a><a class="code" href="main_8cpp.html#af0520b6dcd82a233e4fd3989b11a74d5">00044</a> <a class="code" href="struct_color_gradient.html" title="A color gradient for coloring the face of a tetris piece block.">ColorGradient</a> g_cubeGradients[COLOR_ID_MAX] = 
+<a name="l00045"></a>00045 {
+<a name="l00046"></a>00046   {{255, 255, 64, 255}, {128, 128, 0, 255}, {64, 64, 0, 255}},  <span class="comment">// yellow</span>
+<a name="l00047"></a>00047   {{64, 255, 255, 255}, {0, 128, 128, 255}, {0, 64, 64, 255}},  <span class="comment">// cyan</span>
+<a name="l00048"></a>00048   {{64, 255, 64, 255}, {0, 128, 0, 255}, {0, 64, 0, 255}},      <span class="comment">// green</span>
+<a name="l00049"></a>00049   {{255, 64, 64, 255}, {128, 0, 0, 255}, {64, 0, 0, 255}},      <span class="comment">// red</span>
+<a name="l00050"></a>00050   {{255, 128, 64, 255}, {128, 64, 0, 255}, {64, 32, 0, 255}},   <span class="comment">// orange</span>
+<a name="l00051"></a>00051   {{64, 64, 255, 255}, {0, 0, 128, 255}, {0, 0, 64, 255}},      <span class="comment">// blue</span>
+<a name="l00052"></a>00052   {{255, 64, 255, 255}, {128, 0, 128, 255}, {64, 0, 64, 255}},  <span class="comment">// magenta</span>
+<a name="l00053"></a>00053   {{100, 100, 100, 255}, {50, 50, 50, 255}, {25, 25, 25, 255}}, <span class="comment">// dead color</span>
+<a name="l00054"></a>00054   {{0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}}                    <span class="comment">// base color</span>
+<a name="l00055"></a>00055   <span class="comment">//{{200, 200, 200, 255}, {128, 128, 128, 255}, {64, 64, 64, 255}}, // gray</span>
+<a name="l00056"></a>00056 };
+<a name="l00057"></a>00057 
+<a name="l00058"></a>00058 <span class="comment">//void (*reload)() = (void(*)())0x90000020;</span>
+<a name="l00059"></a>00059 <span class="comment">//void (*reloadGecko)() = (void(*)())0x80001800;</span>
 </pre></div></div>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Wed Sep 29 2010 04:55:57 for TetriCycle by&nbsp;
+<hr class="footer"/><address class="footer"><small>Generated on Tue Oct 19 2010 03:28:45 for TetriCycle by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.1 </small></address>
 </body>

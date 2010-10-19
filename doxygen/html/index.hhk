@@ -159,6 +159,13 @@
     <LI><OBJECT type="text/sitemap"><param name="Local" value="_player_8h.html"><param name="Name" value="Player.h"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="tcyc__menu_8cpp.html"><param name="Name" value="g_heartbeatSound"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="globals_8cpp.html"><param name="Name" value="g_isClassicMode"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="globals_8cpp.html"><param name="Name" value="globals.cpp"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="_player_8cpp.html"><param name="Name" value="Player.cpp"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="tcyc__input_8cpp.html"><param name="Name" value="tcyc_input.cpp"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="tcyc__menu_8cpp.html"><param name="Name" value="tcyc_menu.cpp"></OBJECT>
+  </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="globals_8cpp.html"><param name="Name" value="g_isEditMode"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="globals_8cpp.html"><param name="Name" value="globals.cpp"></OBJECT>
@@ -312,6 +319,7 @@
   <LI><OBJECT type="text/sitemap"><param name="Local" value="globals_8cpp.html"><param name="Name" value="globals.cpp"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="globals_8cpp.html"><param name="Name" value="g_cubeGradients"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="globals_8cpp.html"><param name="Name" value="g_isClassicMode"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="globals_8cpp.html"><param name="Name" value="g_isEditMode"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="globals_8cpp.html"><param name="Name" value="g_modPlay"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="globals_8cpp.html"><param name="Name" value="g_options"></OBJECT>
@@ -329,6 +337,7 @@
     <LI><OBJECT type="text/sitemap"><param name="Local" value="main_8cpp.html"><param name="Name" value="main.cpp"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="tcyc__menu_8cpp.html"><param name="Name" value="tcyc_menu.cpp"></OBJECT>
   </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_player.html"><param name="Name" value="guide"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="main_8cpp.html"><param name="Name" value="GX_Cube"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="main_8cpp.html"><param name="Name" value="main.cpp"></OBJECT>
@@ -344,11 +353,9 @@
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_tetris_piece.html"><param name="Name" value="IsAccelEnabled"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_player.html"><param name="Name" value="isHandicapEnabled"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_options.html"><param name="Name" value="isNetplay"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_player.html"><param name="Name" value="isNormalRotation"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_options.html"><param name="Name" value="isPaused"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_profile.html"><param name="Name" value="isPowerupEnabled"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_player.html"><param name="Name" value="isPreviewEnabled"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_player.html"><param name="Name" value="isShadowEnabled"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_player.html"><param name="Name" value="isShakeEnabled"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="defines_8h.html"><param name="Name" value="LEFT"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="tcyc__input_8h.html"><param name="Name" value="LEFT_PRESSED"></OBJECT>
@@ -481,6 +488,7 @@
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_player.html"><param name="Name" value="Player"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="_player_8cpp.html"><param name="Name" value="Player.cpp"></OBJECT>
   <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="_player_8cpp.html"><param name="Name" value="g_isClassicMode"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="_player_8cpp.html"><param name="Name" value="g_modPlay"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="_player_8cpp.html"><param name="Name" value="g_options"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="_player_8cpp.html"><param name="Name" value="g_players"></OBJECT>
@@ -504,12 +512,11 @@
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_player.html"><param name="Name" value="gameData"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_player.html"><param name="Name" value="GetEffectQueueSlot"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_player.html"><param name="Name" value="GetPowerupQueueSlot"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_player.html"><param name="Name" value="guide"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_player.html"><param name="Name" value="id"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_player.html"><param name="Name" value="IncrementCycle"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_player.html"><param name="Name" value="isHandicapEnabled"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_player.html"><param name="Name" value="isNormalRotation"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_player.html"><param name="Name" value="isPreviewEnabled"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_player.html"><param name="Name" value="isShadowEnabled"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_player.html"><param name="Name" value="isShakeEnabled"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_player.html"><param name="Name" value="MovePiece"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_player.html"><param name="Name" value="MovePlayfield"></OBJECT>
@@ -528,6 +535,7 @@
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_player.html"><param name="Name" value="RemovePowerup"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_player.html"><param name="Name" value="Reset"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_player.html"><param name="Name" value="RotateCurrentPiece"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_player.html"><param name="Name" value="rotation"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_player.html"><param name="Name" value="Update"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_options.html"><param name="Name" value="players"></OBJECT>
@@ -684,6 +692,7 @@
   <LI><OBJECT type="text/sitemap"><param name="Local" value="tcyc__input_8h.html"><param name="Name" value="ROTATE2_PRESSED"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="tcyc__input_8h.html"><param name="Name" value="ROTATE_PRESSED"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_player.html"><param name="Name" value="RotateCurrentPiece"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_player.html"><param name="Name" value="rotation"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_color_gradient.html"><param name="Name" value="SetColor"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_tetris_piece_block.html"><param name="Name" value="SetConnectivityInfo"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_tetris_piece.html"><param name="Name" value="SetPowerupId"></OBJECT>
@@ -738,6 +747,7 @@
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="tcyc__input_8cpp.html"><param name="Name" value="tcyc_input.cpp"></OBJECT>
   <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="tcyc__input_8cpp.html"><param name="Name" value="g_isClassicMode"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="tcyc__input_8cpp.html"><param name="Name" value="g_options"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="tcyc__input_8cpp.html"><param name="Name" value="g_players"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="tcyc__input_8cpp.html"><param name="Name" value="g_tcycMenu"></OBJECT>
@@ -818,6 +828,7 @@
     <LI><OBJECT type="text/sitemap"><param name="Local" value="tcyc__menu_8cpp.html"><param name="Name" value="debug_grabber3"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="tcyc__menu_8cpp.html"><param name="Name" value="debug_grabber4"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="tcyc__menu_8cpp.html"><param name="Name" value="g_heartbeatSound"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="tcyc__menu_8cpp.html"><param name="Name" value="g_isClassicMode"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="tcyc__menu_8cpp.html"><param name="Name" value="g_isEditMode"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="tcyc__menu_8cpp.html"><param name="Name" value="g_modPlay"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="tcyc__menu_8cpp.html"><param name="Name" value="g_options"></OBJECT>

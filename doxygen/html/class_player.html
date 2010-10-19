@@ -104,8 +104,8 @@ bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0a597b219f7c62ae411b09819f6d5e18"></a><!-- doxytag: member="Player::DoMovement" ref="a0a597b219f7c62ae411b09819f6d5e18" args="()" -->
 void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player.html#a0a597b219f7c62ae411b09819f6d5e18">DoMovement</a> ()</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Move the current piece down automatically. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adb2ad24171a8f0df39181b322fc4f171"></a><!-- doxytag: member="Player::DrawBlockAsCube" ref="adb2ad24171a8f0df39181b322fc4f171" args="(float x, float y, ColorId colorIdx, u8 alpha=255, GuiImageData *imgData=NULL)" -->
-void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player.html#adb2ad24171a8f0df39181b322fc4f171">DrawBlockAsCube</a> (float x, float y, <a class="el" href="_color_8h.html#ac0dddfeb58e0f6855f22796d240b070d">ColorId</a> colorIdx, u8 alpha=255, GuiImageData *imgData=NULL)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a874ac3ef1bf9a95ad608c13cf73c74a7"></a><!-- doxytag: member="Player::DrawBlockAsCube" ref="a874ac3ef1bf9a95ad608c13cf73c74a7" args="(float x, float y, ColorId colorIdx, u8 alpha=255, GuiImageData *imgData=NULL, bool isGuideDot=false)" -->
+void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player.html#a874ac3ef1bf9a95ad608c13cf73c74a7">DrawBlockAsCube</a> (float x, float y, <a class="el" href="_color_8h.html#ac0dddfeb58e0f6855f22796d240b070d">ColorId</a> colorIdx, u8 alpha=255, GuiImageData *imgData=NULL, bool isGuideDot=false)</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Draw each tetris piece block as a cube. <br/></td></tr>
 <tr><td colspan="2"><h2><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -141,12 +141,12 @@ u8&nbsp;</td><td class="memItemRight" valign="bottom"><b>playfieldHeight</b></td
 u8&nbsp;</td><td class="memItemRight" valign="bottom"><b>playfieldScale</b></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ade6bebcd59bfbe75edfc3c99853715f7"></a><!-- doxytag: member="Player::id" ref="ade6bebcd59bfbe75edfc3c99853715f7" args="" -->
 u8&nbsp;</td><td class="memItemRight" valign="bottom"><b>id</b></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2ef860adb86a4dc7f074a9895e77ba15"></a><!-- doxytag: member="Player::isNormalRotation" ref="a2ef860adb86a4dc7f074a9895e77ba15" args="" -->
-bool&nbsp;</td><td class="memItemRight" valign="bottom"><b>isNormalRotation</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8f8760cb6988d0f8526d25f973257772"></a><!-- doxytag: member="Player::rotation" ref="a8f8760cb6988d0f8526d25f973257772" args="" -->
+u8&nbsp;</td><td class="memItemRight" valign="bottom"><b>rotation</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abc4a9c590615f48a9e9bc54b18ae144d"></a><!-- doxytag: member="Player::guide" ref="abc4a9c590615f48a9e9bc54b18ae144d" args="" -->
+u8&nbsp;</td><td class="memItemRight" valign="bottom"><b>guide</b></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae1398934f250b6e5a690df906868270c"></a><!-- doxytag: member="Player::isShakeEnabled" ref="ae1398934f250b6e5a690df906868270c" args="" -->
 bool&nbsp;</td><td class="memItemRight" valign="bottom"><b>isShakeEnabled</b></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a510423ffaa056d5a63dd840d9953b8ec"></a><!-- doxytag: member="Player::isShadowEnabled" ref="a510423ffaa056d5a63dd840d9953b8ec" args="" -->
-bool&nbsp;</td><td class="memItemRight" valign="bottom"><b>isShadowEnabled</b></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a25c17650cef6a0e118142d7482923302"></a><!-- doxytag: member="Player::isPreviewEnabled" ref="a25c17650cef6a0e118142d7482923302" args="" -->
 bool&nbsp;</td><td class="memItemRight" valign="bottom"><b>isPreviewEnabled</b></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7017e0898cf34f938024d9f99010d46f"></a><!-- doxytag: member="Player::isHandicapEnabled" ref="a7017e0898cf34f938024d9f99010d46f" args="" -->
@@ -155,7 +155,7 @@ bool&nbsp;</td><td class="memItemRight" valign="bottom"><b>isHandicapEnabled</b>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 <p>This class represents a player. </p>
 
-<p>Definition at line <a class="el" href="_player_8h_source.html#l00043">43</a> of file <a class="el" href="_player_8h_source.html">Player.h</a>.</p>
+<p>Definition at line <a class="el" href="_player_8h_source.html#l00059">59</a> of file <a class="el" href="_player_8h_source.html">Player.h</a>.</p>
 <hr/><h2>Member Function Documentation</h2>
 <a class="anchor" id="aa4e9a4b20a4c29cb8df054ca6f70c73f"></a><!-- doxytag: member="Player::DrawPiece" ref="aa4e9a4b20a4c29cb8df054ca6f70c73f" args="(TetrisPiece *cp=NULL, u8 alpha=255)" -->
 <div class="memitem">
@@ -185,7 +185,7 @@ bool&nbsp;</td><td class="memItemRight" valign="bottom"><b>isHandicapEnabled</b>
 <p>Draws a tetris piece. </p>
 <p>If no piece is specified, then the player's current piece is drawn. </p>
 
-<p>Definition at line <a class="el" href="_player_8cpp_source.html#l00101">101</a> of file <a class="el" href="_player_8cpp_source.html">Player.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_player_8cpp_source.html#l00102">102</a> of file <a class="el" href="_player_8cpp_source.html">Player.cpp</a>.</p>
 
 </div>
 </div>
@@ -207,7 +207,7 @@ bool&nbsp;</td><td class="memItemRight" valign="bottom"><b>isHandicapEnabled</b>
 <p>Get an open slot for storing a powerup effect. </p>
 <dl class="return"><dt><b>Returns:</b></dt><dd>The index of the first open slot, if one exists; else, -1. </dd></dl>
 
-<p>Definition at line <a class="el" href="_player_8h_source.html#l00182">182</a> of file <a class="el" href="_player_8h_source.html">Player.h</a>.</p>
+<p>Definition at line <a class="el" href="_player_8h_source.html#l00198">198</a> of file <a class="el" href="_player_8h_source.html">Player.h</a>.</p>
 
 </div>
 </div>
@@ -229,7 +229,7 @@ bool&nbsp;</td><td class="memItemRight" valign="bottom"><b>isHandicapEnabled</b>
 <p>Get an open slot for storing an acquired powerup. </p>
 <dl class="return"><dt><b>Returns:</b></dt><dd>The index of the first open slot, if one exists; else, -1. </dd></dl>
 
-<p>Definition at line <a class="el" href="_player_8h_source.html#l00155">155</a> of file <a class="el" href="_player_8h_source.html">Player.h</a>.</p>
+<p>Definition at line <a class="el" href="_player_8h_source.html#l00171">171</a> of file <a class="el" href="_player_8h_source.html">Player.h</a>.</p>
 
 </div>
 </div>
@@ -261,7 +261,7 @@ bool&nbsp;</td><td class="memItemRight" valign="bottom"><b>isHandicapEnabled</b>
 <p>Moves the tetris piece in the given direction. </p>
 <p>If no piece is specified then the player's current piece is used. </p>
 
-<p>Definition at line <a class="el" href="_player_8cpp_source.html#l00246">246</a> of file <a class="el" href="_player_8cpp_source.html">Player.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_player_8cpp_source.html#l00282">282</a> of file <a class="el" href="_player_8cpp_source.html">Player.cpp</a>.</p>
 
 </div>
 </div>
@@ -284,7 +284,7 @@ bool&nbsp;</td><td class="memItemRight" valign="bottom"><b>isHandicapEnabled</b>
 <p>Adds a powerup to the powerup effect queue. </p>
 <dl class="return"><dt><b>Returns:</b></dt><dd>True if the powerup was successfully used on this player; else, false. </dd></dl>
 
-<p>Definition at line <a class="el" href="_player_8h_source.html#l00197">197</a> of file <a class="el" href="_player_8h_source.html">Player.h</a>.</p>
+<p>Definition at line <a class="el" href="_player_8h_source.html#l00213">213</a> of file <a class="el" href="_player_8h_source.html">Player.h</a>.</p>
 
 </div>
 </div>
@@ -307,7 +307,7 @@ bool&nbsp;</td><td class="memItemRight" valign="bottom"><b>isHandicapEnabled</b>
 <p>Removes a powerup from the powerup effect queue. </p>
 <dl class="return"><dt><b>Returns:</b></dt><dd>True if the powerup was successfully removed; else, false. </dd></dl>
 
-<p>Definition at line <a class="el" href="_player_8h_source.html#l00219">219</a> of file <a class="el" href="_player_8h_source.html">Player.h</a>.</p>
+<p>Definition at line <a class="el" href="_player_8h_source.html#l00235">235</a> of file <a class="el" href="_player_8h_source.html">Player.h</a>.</p>
 
 </div>
 </div>
@@ -316,7 +316,7 @@ bool&nbsp;</td><td class="memItemRight" valign="bottom"><b>isHandicapEnabled</b>
 <li>code/source/<a class="el" href="_player_8cpp_source.html">Player.cpp</a></li>
 </ul>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Wed Sep 29 2010 04:55:57 for TetriCycle by&nbsp;
+<hr class="footer"/><address class="footer"><small>Generated on Tue Oct 19 2010 03:28:46 for TetriCycle by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.1 </small></address>
 </body>
