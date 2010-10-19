@@ -42,6 +42,7 @@ extern GuiWindow *mainWindow; ///< the main window
 extern Player *g_players;  ///< the player instances
 extern MODPlay g_modPlay;  ///< used for playing the game music
 extern bool g_isEditMode;  ///< true when editing the playfield
+extern bool g_isClassicMode; ///< classic mode
 extern int g_tcycMenu;     ///< the current menu state
 extern Options *g_options; ///< the global options
 
@@ -70,6 +71,7 @@ GuiImageData *debug_grabber1;
 GuiImageData *debug_grabber2;
 GuiImageData *debug_grabber3;
 GuiImageData *debug_grabber4;
+static GuiImageData *logoImgData;
 
 // function prototypes
 static void TCYC_MenuStartup();
@@ -230,6 +232,7 @@ void TCYC_MenuLoadResources()
   debug_grabber2         = new GuiImageData(player2_grab_png);
   debug_grabber3         = new GuiImageData(player3_grab_png);
   debug_grabber4         = new GuiImageData(player4_grab_png);
+  logoImgData            = new GuiImageData(logo_alien_png);
 
   // Init the main screen background image and music.
   bgImg   = new GuiImage(tetrisLove);
@@ -241,7 +244,7 @@ void TCYC_MenuLoadResources()
 /// Displays the startup screen.
 void TCYC_MenuStartup()
 { 
-  GuiText titleTxt("TetriCycle 1.0 by calvinss4", 30, (GXColor){255, 255, 255, 255});
+  GuiText titleTxt("TetriCycle 1.1 by calvinss4", 30, (GXColor){255, 255, 255, 255});
   titleTxt.SetAlignment(ALIGN_CENTRE, ALIGN_TOP);
   titleTxt.SetPosition(0, 50);
 
@@ -335,15 +338,93 @@ void TCYC_MenuLoop()
 /// Displays the main menu screen.
 int TCYC_MenuMainScreen()
 {
+  static const int RIGHT_OFFSET = 0;
+  static const int LEFT_OFFSET = 32;
+  static const int TOP_OFFSET = 155;
+  static const int BOTTOM_OFFSET = -50;
+
   ResetVideo_Menu();
   if (!g_isEditMode)
     bgMusic->Play();
   g_isEditMode = false;
+  g_isClassicMode = false;
 
-  // title text
-  GuiText titleTxt("TetriCycle", 28, (GXColor){255, 255, 255, 255});
-  titleTxt.SetAlignment(ALIGN_CENTRE, ALIGN_TOP);
-  titleTxt.SetPosition(0, 50);
+  // logo
+  GuiImage logoImg(logoImgData);
+  logoImg.SetAlignment(ALIGN_CENTRE, ALIGN_TOP);
+  logoImg.SetPosition(0, 40);
+
+  //--- Classic Mode ---
+  GuiText classicTxt("Classical:", 24, (GXColor){255, 255, 255, 255});
+  classicTxt.SetAlignment(ALIGN_LEFT, ALIGN_TOP);
+  classicTxt.SetPosition(LEFT_OFFSET, TOP_OFFSET);
+
+  // 1P button
+  GuiButton classicp1Btn(btnData40x40Square->GetWidth(), btnData40x40Square->GetHeight());
+  GuiText classicp1BtnTxt("1P", 22, (GXColor){0, 0, 0, 255});
+  GuiImage classicp1BtnImg(btnData40x40Square);
+  GuiImage classicp1BtnImgOver(btnData40x40SquareOver);
+
+  classicp1Btn.SetAlignment(ALIGN_LEFT, ALIGN_TOP);
+  classicp1Btn.SetPosition(LEFT_OFFSET, TOP_OFFSET + 30);
+  classicp1Btn.SetLabel(&classicp1BtnTxt);
+  classicp1Btn.SetImage(&classicp1BtnImg);
+  classicp1Btn.SetImageOver(&classicp1BtnImgOver);
+  classicp1Btn.SetSoundOver(btnSoundOver);
+  classicp1Btn.SetTrigger(trigA);
+  classicp1Btn.SetEffectGrow();
+
+  // 2P button
+  GuiButton classicp2Btn(btnData40x40Square->GetWidth(), btnData40x40Square->GetHeight());
+  GuiText classicp2BtnTxt("2P", 22, (GXColor){0, 0, 0, 255});
+  GuiImage classicp2BtnImg(btnData40x40Square);
+  GuiImage classicp2BtnImgOver(btnData40x40SquareOver);
+
+  classicp2Btn.SetAlignment(ALIGN_LEFT, ALIGN_TOP);
+  classicp2Btn.SetPosition(LEFT_OFFSET + btnData40x40Square->GetWidth(), TOP_OFFSET + 30);
+  classicp2Btn.SetLabel(&classicp2BtnTxt);
+  classicp2Btn.SetImage(&classicp2BtnImg);
+  classicp2Btn.SetImageOver(&classicp2BtnImgOver);
+  classicp2Btn.SetSoundOver(btnSoundOver);
+  classicp2Btn.SetTrigger(trigA);
+  classicp2Btn.SetEffectGrow();
+
+  // 3P button
+  GuiButton classicp3Btn(btnData40x40Square->GetWidth(), btnData40x40Square->GetHeight());
+  GuiText classicp3BtnTxt("3P", 22, (GXColor){0, 0, 0, 255});
+  GuiImage classicp3BtnImg(btnData40x40Square);
+  GuiImage classicp3BtnImgOver(btnData40x40SquareOver);
+
+  classicp3Btn.SetAlignment(ALIGN_LEFT, ALIGN_TOP);
+  classicp3Btn.SetPosition(LEFT_OFFSET + 2 * btnData40x40Square->GetWidth(), TOP_OFFSET + 30);
+  classicp3Btn.SetLabel(&classicp3BtnTxt);
+  classicp3Btn.SetImage(&classicp3BtnImg);
+  classicp3Btn.SetImageOver(&classicp3BtnImgOver);
+  classicp3Btn.SetSoundOver(btnSoundOver);
+  classicp3Btn.SetTrigger(trigA);
+  classicp3Btn.SetEffectGrow();
+
+  // 4P button
+  GuiButton classicp4Btn(btnData40x40Square->GetWidth(), btnData40x40Square->GetHeight());
+  GuiText classicp4BtnTxt("4P", 22, (GXColor){0, 0, 0, 255});
+  GuiImage classicp4BtnImg(btnData40x40Square);
+  GuiImage classicp4BtnImgOver(btnData40x40SquareOver);
+
+  classicp4Btn.SetAlignment(ALIGN_LEFT, ALIGN_TOP);
+  classicp4Btn.SetPosition(LEFT_OFFSET + 3 * btnData40x40Square->GetWidth(), TOP_OFFSET + 30);
+  classicp4Btn.SetLabel(&classicp4BtnTxt);
+  classicp4Btn.SetImage(&classicp4BtnImg);
+  classicp4Btn.SetImageOver(&classicp4BtnImgOver);
+  classicp4Btn.SetSoundOver(btnSoundOver);
+  classicp4Btn.SetTrigger(trigA);
+  classicp4Btn.SetEffectGrow();
+
+  static const int PLAYER_DY = 60;
+
+  //--- Cylindrical Mode ---
+  GuiText cylindricalTxt("Cylindrical:", 24, (GXColor){255, 255, 255, 255});
+  cylindricalTxt.SetAlignment(ALIGN_LEFT, ALIGN_TOP);
+  cylindricalTxt.SetPosition(LEFT_OFFSET, TOP_OFFSET + (PLAYER_DY + btnData40x40Square->GetHeight()) * 1);
 
   // 1P button
   GuiButton p1Btn(btnData40x40Square->GetWidth(), btnData40x40Square->GetHeight());
@@ -352,7 +433,7 @@ int TCYC_MenuMainScreen()
   GuiImage p1BtnImgOver(btnData40x40SquareOver);
 
   p1Btn.SetAlignment(ALIGN_LEFT, ALIGN_TOP);
-  p1Btn.SetPosition(50, 100);
+  p1Btn.SetPosition(LEFT_OFFSET, TOP_OFFSET + 30 + (PLAYER_DY + btnData40x40Square->GetHeight()) * 1);
   p1Btn.SetLabel(&p1BtnTxt);
   p1Btn.SetImage(&p1BtnImg);
   p1Btn.SetImageOver(&p1BtnImgOver);
@@ -367,7 +448,7 @@ int TCYC_MenuMainScreen()
   GuiImage p2BtnImgOver(btnData40x40SquareOver);
 
   p2Btn.SetAlignment(ALIGN_LEFT, ALIGN_TOP);
-  p2Btn.SetPosition(50 + btnData40x40Square->GetWidth(), 100);
+  p2Btn.SetPosition(LEFT_OFFSET + btnData40x40Square->GetWidth(), TOP_OFFSET + 30 + (PLAYER_DY + btnData40x40Square->GetHeight()) * 1);
   p2Btn.SetLabel(&p2BtnTxt);
   p2Btn.SetImage(&p2BtnImg);
   p2Btn.SetImageOver(&p2BtnImgOver);
@@ -382,7 +463,7 @@ int TCYC_MenuMainScreen()
   GuiImage p3BtnImgOver(btnData40x40SquareOver);
 
   p3Btn.SetAlignment(ALIGN_LEFT, ALIGN_TOP);
-  p3Btn.SetPosition(50 + 2 * btnData40x40Square->GetWidth(), 100);
+  p3Btn.SetPosition(LEFT_OFFSET + 2 * btnData40x40Square->GetWidth(), TOP_OFFSET + 30 + (PLAYER_DY + btnData40x40Square->GetHeight()) * 1);
   p3Btn.SetLabel(&p3BtnTxt);
   p3Btn.SetImage(&p3BtnImg);
   p3Btn.SetImageOver(&p3BtnImgOver);
@@ -397,7 +478,7 @@ int TCYC_MenuMainScreen()
   GuiImage p4BtnImgOver(btnData40x40SquareOver);
 
   p4Btn.SetAlignment(ALIGN_LEFT, ALIGN_TOP);
-  p4Btn.SetPosition(50 + 3 * btnData40x40Square->GetWidth(), 100);
+  p4Btn.SetPosition(LEFT_OFFSET + 3 * btnData40x40Square->GetWidth(), TOP_OFFSET + 30 + (PLAYER_DY + btnData40x40Square->GetHeight()) * 1);
   p4Btn.SetLabel(&p4BtnTxt);
   p4Btn.SetImage(&p4BtnImg);
   p4Btn.SetImageOver(&p4BtnImgOver);
@@ -411,8 +492,8 @@ int TCYC_MenuMainScreen()
   GuiImage profileBtnImg(btnOutline);
   GuiImage profileBtnImgOver(btnOutlineOver);
 
-  profileBtn.SetAlignment(ALIGN_LEFT, ALIGN_TOP);
-  profileBtn.SetPosition(50 + 4 * btnData40x40Square->GetWidth() + 10, 100 - 6);
+  profileBtn.SetAlignment(ALIGN_RIGHT, ALIGN_TOP);
+  profileBtn.SetPosition(RIGHT_OFFSET, TOP_OFFSET);
   profileBtn.SetLabel(&profileBtnTxt);
   profileBtn.SetImage(&profileBtnImg);
   profileBtn.SetImageOver(&profileBtnImgOver);
@@ -426,8 +507,8 @@ int TCYC_MenuMainScreen()
   GuiImage mpOptionsBtnImg(btnOutline);
   GuiImage mpOptionsBtnImgOver(btnOutlineOver);
 
-  mpOptionsBtn.SetAlignment(ALIGN_LEFT, ALIGN_TOP);
-  mpOptionsBtn.SetPosition(50 + 4 * btnData40x40Square->GetWidth() + 10 + btnOutline->GetWidth(), 100 - 6);
+  mpOptionsBtn.SetAlignment(ALIGN_RIGHT, ALIGN_TOP);
+  mpOptionsBtn.SetPosition(RIGHT_OFFSET, TOP_OFFSET + btnOutline->GetHeight() * 1);
   mpOptionsBtn.SetLabel(&mpOptionsBtnTxt);
   mpOptionsBtn.SetImage(&mpOptionsBtnImg);
   mpOptionsBtn.SetImageOver(&mpOptionsBtnImgOver);
@@ -441,8 +522,8 @@ int TCYC_MenuMainScreen()
   GuiImage mpHandicapsBtnImg(btnOutline);
   GuiImage mpHandicapsBtnImgOver(btnOutlineOver);
 
-  mpHandicapsBtn.SetAlignment(ALIGN_LEFT, ALIGN_TOP);
-  mpHandicapsBtn.SetPosition(50 + 4 * btnData40x40Square->GetWidth() + 10 + btnOutline->GetWidth(), 100 - 6 + btnOutline->GetHeight());
+  mpHandicapsBtn.SetAlignment(ALIGN_RIGHT, ALIGN_TOP);
+  mpHandicapsBtn.SetPosition(RIGHT_OFFSET, TOP_OFFSET + btnOutline->GetHeight() * 2);
   mpHandicapsBtn.SetLabel(&mpHandicapsBtnTxt);
   mpHandicapsBtn.SetImage(&mpHandicapsBtnImg);
   mpHandicapsBtn.SetImageOver(&mpHandicapsBtnImgOver);
@@ -456,8 +537,8 @@ int TCYC_MenuMainScreen()
   GuiImage returnBtnImg(btnOutline);
   GuiImage returnBtnImgOver(btnOutlineOver);
 
-  returnBtn.SetAlignment(ALIGN_RIGHT, ALIGN_BOTTOM);
-  returnBtn.SetPosition(-50 - btnOutline->GetWidth(), -50);
+  returnBtn.SetAlignment(ALIGN_CENTRE/*ALIGN_RIGHT*/, ALIGN_BOTTOM);
+  returnBtn.SetPosition(0/*RIGHT_OFFSET - btnOutline->GetWidth()*/, BOTTOM_OFFSET);
   returnBtn.SetLabel(&returnBtnTxt);
   returnBtn.SetImage(&returnBtnImg);
   returnBtn.SetImageOver(&returnBtnImgOver);
@@ -473,7 +554,7 @@ int TCYC_MenuMainScreen()
   GuiImage exitBtnImgOver(btnOutlineOver);
 
   exitBtn.SetAlignment(ALIGN_RIGHT, ALIGN_BOTTOM);
-  exitBtn.SetPosition(-50, -50);
+  exitBtn.SetPosition(RIGHT_OFFSET, BOTTOM_OFFSET);
   exitBtn.SetLabel(&exitBtnTxt);
   exitBtn.SetImage(&exitBtnImg);
   exitBtn.SetImageOver(&exitBtnImgOver);
@@ -489,18 +570,20 @@ int TCYC_MenuMainScreen()
   heartBtn.SetSoundOver(btnSoundOver);
   heartBtn.SetTrigger(trigA);
 
+  static const int PLAYER_BOTTOM_OFFSET = -5;
+
   //--- Adjust Playfield ---
   GuiText playfieldTxt("Edit Playfield:", 24, (GXColor){255, 255, 255, 255});
-  playfieldTxt.SetAlignment(ALIGN_LEFT, ALIGN_TOP);
-  playfieldTxt.SetPosition(50, 260);
+  playfieldTxt.SetAlignment(ALIGN_LEFT, ALIGN_BOTTOM);
+  playfieldTxt.SetPosition(LEFT_OFFSET, BOTTOM_OFFSET + PLAYER_BOTTOM_OFFSET - btnData40x40Square->GetHeight() - 8);
 
   GuiButton edit1PBtn(btnData40x40Square->GetWidth(), btnData40x40Square->GetHeight());
   GuiText edit1PBtnTxt("1P", 22, (GXColor){0, 0, 0, 255});
   GuiImage edit1PBtnImg(btnData40x40Square);
   GuiImage edit1PBtnImgOver(btnData40x40SquareOver);
 
-  edit1PBtn.SetAlignment(ALIGN_LEFT, ALIGN_TOP);
-  edit1PBtn.SetPosition(50, 290);
+  edit1PBtn.SetAlignment(ALIGN_LEFT, ALIGN_BOTTOM);
+  edit1PBtn.SetPosition(LEFT_OFFSET, BOTTOM_OFFSET + PLAYER_BOTTOM_OFFSET);
   edit1PBtn.SetLabel(&edit1PBtnTxt);
   edit1PBtn.SetImage(&edit1PBtnImg);
   edit1PBtn.SetImageOver(&edit1PBtnImgOver);
@@ -513,8 +596,8 @@ int TCYC_MenuMainScreen()
   GuiImage edit2PBtnImg(btnData40x40Square);
   GuiImage edit2PBtnImgOver(btnData40x40SquareOver);
 
-  edit2PBtn.SetAlignment(ALIGN_LEFT, ALIGN_TOP);
-  edit2PBtn.SetPosition(50 + btnData40x40Square->GetWidth(), 290);
+  edit2PBtn.SetAlignment(ALIGN_LEFT, ALIGN_BOTTOM);
+  edit2PBtn.SetPosition(LEFT_OFFSET + btnData40x40Square->GetWidth(), BOTTOM_OFFSET + PLAYER_BOTTOM_OFFSET);
   edit2PBtn.SetLabel(&edit2PBtnTxt);
   edit2PBtn.SetImage(&edit2PBtnImg);
   edit2PBtn.SetImageOver(&edit2PBtnImgOver);
@@ -527,8 +610,8 @@ int TCYC_MenuMainScreen()
   GuiImage edit3PBtnImg(btnData40x40Square);
   GuiImage edit3PBtnImgOver(btnData40x40SquareOver);
 
-  edit3PBtn.SetAlignment(ALIGN_LEFT, ALIGN_TOP);
-  edit3PBtn.SetPosition(50 + 2 * btnData40x40Square->GetWidth(), 290);
+  edit3PBtn.SetAlignment(ALIGN_LEFT, ALIGN_BOTTOM);
+  edit3PBtn.SetPosition(LEFT_OFFSET + 2 * btnData40x40Square->GetWidth(), BOTTOM_OFFSET + PLAYER_BOTTOM_OFFSET);
   edit3PBtn.SetLabel(&edit3PBtnTxt);
   edit3PBtn.SetImage(&edit3PBtnImg);
   edit3PBtn.SetImageOver(&edit3PBtnImgOver);
@@ -541,8 +624,8 @@ int TCYC_MenuMainScreen()
   GuiImage edit4PBtnImg(btnData40x40Square);
   GuiImage edit4PBtnImgOver(btnData40x40SquareOver);
 
-  edit4PBtn.SetAlignment(ALIGN_LEFT, ALIGN_TOP);
-  edit4PBtn.SetPosition(50 + 3 * btnData40x40Square->GetWidth(), 290);
+  edit4PBtn.SetAlignment(ALIGN_LEFT, ALIGN_BOTTOM);
+  edit4PBtn.SetPosition(LEFT_OFFSET + 3 * btnData40x40Square->GetWidth(), BOTTOM_OFFSET + PLAYER_BOTTOM_OFFSET);
   edit4PBtn.SetLabel(&edit4PBtnTxt);
   edit4PBtn.SetImage(&edit4PBtnImg);
   edit4PBtn.SetImageOver(&edit4PBtnImgOver);
@@ -553,22 +636,28 @@ int TCYC_MenuMainScreen()
   //--- Populate the window ---
   GuiWindow w(screenwidth, screenheight);
   w.Append(bgImg);
-  w.Append(&titleTxt);
+  w.Append(&logoImg);
+  w.Append(&classicTxt);
+  w.Append(&classicp1Btn);
+  w.Append(&classicp2Btn);
+  w.Append(&classicp3Btn);
+  w.Append(&classicp4Btn);
+  w.Append(&cylindricalTxt);
   w.Append(&p1Btn);
   w.Append(&p2Btn);
   w.Append(&p3Btn);
   w.Append(&p4Btn);
+  w.Append(&playfieldTxt);
+  w.Append(&edit1PBtn);
+  w.Append(&edit2PBtn);
+  w.Append(&edit3PBtn);
+  w.Append(&edit4PBtn);
   w.Append(&profileBtn);
   w.Append(&mpOptionsBtn);
   w.Append(&mpHandicapsBtn);
   w.Append(&returnBtn);
   w.Append(&exitBtn);
   w.Append(&heartBtn);
-  w.Append(&playfieldTxt);
-  w.Append(&edit1PBtn);
-  w.Append(&edit2PBtn);
-  w.Append(&edit3PBtn);
-  w.Append(&edit4PBtn);
   //w.Append(&networkBtn);
 
   HaltGui();
@@ -652,6 +741,30 @@ int TCYC_MenuMainScreen()
       menu = TCYC_MENU_GAME;
       g_isEditMode = true;
     }
+	  else if (classicp1Btn.GetState() == STATE_CLICKED)
+    {
+      g_options->players = 1;
+      menu = TCYC_MENU_GAME;
+	    g_isClassicMode = true;
+    }
+    else if (classicp2Btn.GetState() == STATE_CLICKED)
+    {
+      g_options->players = 2;
+      menu = TCYC_MENU_GAME;
+	    g_isClassicMode = true;
+    }
+    else if (classicp3Btn.GetState() == STATE_CLICKED)
+    {
+      g_options->players = 3;
+      menu = TCYC_MENU_GAME;
+	    g_isClassicMode = true;
+    }
+    else if (classicp4Btn.GetState() == STATE_CLICKED)
+    {
+      g_options->players = 4;
+      menu = TCYC_MENU_GAME;
+	    g_isClassicMode = true;
+    }
   }
 
   if (!g_isEditMode)
@@ -680,6 +793,8 @@ int TCYC_MenuGame()
 /// Launches the player profiles popup.
 void TCYC_MenuPlayerProfilesPopup()
 {
+  static const char *rotateStr[] = {"normal", "reverse", "piece"};
+  static const char *guideStr[]  = {"off", "shadow", "line"};
   static const int PADDING_TOP = 12;
   GXColor helpTxtColor = (GXColor){0, 170, 0, 255};
   GXColor blackColor = (GXColor){0, 0, 0, 255};
@@ -688,16 +803,16 @@ void TCYC_MenuPlayerProfilesPopup()
   char playerBuf[7+1+1] = "PLAYER "; // values: 1-MAX_PLAYERS + "PLAYER "
   sprintf(playerBuf + 7, "%d", player + 1);
 
-  bool isNormalRotation[MAX_PLAYERS];
+  u8 rotation[MAX_PLAYERS];
+  u8 guide[MAX_PLAYERS];
   bool isShakeEnabled[MAX_PLAYERS];
-  bool isShadowEnabled[MAX_PLAYERS];
   bool isPreviewEnabled[MAX_PLAYERS];
 
   for (int i = 0; i < MAX_PLAYERS; ++i)
   {
-    isNormalRotation[i] = g_players[i].isNormalRotation;
+    rotation[i]         = g_players[i].rotation;
+    guide[i]            = g_players[i].guide;
     isShakeEnabled[i]   = g_players[i].isShakeEnabled;
-    isShadowEnabled[i]  = g_players[i].isShadowEnabled;
     isPreviewEnabled[i] = g_players[i].isPreviewEnabled;
   }
 
@@ -800,15 +915,15 @@ void TCYC_MenuPlayerProfilesPopup()
   rotationRightArrowBtn.SetEffectGrow();
 
   // ROTATION TEXT
-  GuiText rotationTxt(isNormalRotation[player] ? "normal" : "reverse", 22, blackColor);
+  GuiText rotationTxt(rotateStr[rotation[player]], 22, blackColor);
   rotationTxt.SetAlignment(ALIGN_CENTRE, ALIGN_TOP);
   rotationTxt.SetPosition(0, 60 + PADDING_TOP + 1 * 40);
 
   //---
   // SHADOW TEXT BUTTON
-  GuiButton shadowTxtBtn((9 + 1) * 11, 22);
-  GuiText shadowTxtBtnTxt("shadow:", 22, blackColor);
-  GuiText shadowTxtBtnTxtOver("shadow:", 22, helpTxtColor);
+  GuiButton shadowTxtBtn((6 + 1) * 11, 22);
+  GuiText shadowTxtBtnTxt("guide:", 22, blackColor);
+  GuiText shadowTxtBtnTxtOver("guide:", 22, helpTxtColor);
 
   shadowTxtBtn.SetAlignment(ALIGN_LEFT, ALIGN_TOP);
   shadowTxtBtn.SetPosition(20, 60 + PADDING_TOP + 2 * 40);
@@ -852,7 +967,7 @@ void TCYC_MenuPlayerProfilesPopup()
   shadowRightArrowBtn.SetEffectGrow();
 
   // SHADOW TEXT
-  GuiText shadowTxt(isShadowEnabled[player] ? "on" : "off", 22, blackColor);
+  GuiText shadowTxt(guideStr[guide[player]], 22, blackColor);
   shadowTxt.SetAlignment(ALIGN_CENTRE, ALIGN_TOP);
   shadowTxt.SetPosition(0, 60 + PADDING_TOP + 2 * 40);
 
@@ -1054,9 +1169,9 @@ void TCYC_MenuPlayerProfilesPopup()
     {
       for (int i = 0; i < MAX_PLAYERS; ++i)
       {
-        g_players[i].isNormalRotation = isNormalRotation[i];
+        g_players[i].rotation         = rotation[i];
+        g_players[i].guide            = guide[i];
         g_players[i].isShakeEnabled   = isShakeEnabled[i];
-        g_players[i].isShadowEnabled  = isShadowEnabled[i];
         g_players[i].isPreviewEnabled = isPreviewEnabled[i];
       }
 
@@ -1088,9 +1203,9 @@ void TCYC_MenuPlayerProfilesPopup()
 
       sprintf(playerBuf + 7, "%d", player + 1);
       playerTxt.SetText(playerBuf);
-      rotationTxt.SetText(isNormalRotation[player] ? "normal" : "reverse");
+      rotationTxt.SetText(rotateStr[rotation[player]]);
+      shadowTxt.SetText(guideStr[guide[player]]);
       shakeTxt.SetText(isShakeEnabled[player] ? "on" : "off");
-      shadowTxt.SetText(isShadowEnabled[player] ? "on" : "off");
       previewTxt.SetText(isPreviewEnabled[player] ? "on" : "off");
       ResumeGui();
     }
@@ -1104,9 +1219,9 @@ void TCYC_MenuPlayerProfilesPopup()
 
       sprintf(playerBuf + 7, "%d", player + 1);
       playerTxt.SetText(playerBuf);
-      rotationTxt.SetText(isNormalRotation[player] ? "normal" : "reverse");
+      rotationTxt.SetText(rotateStr[rotation[player]]);
+      shadowTxt.SetText(guideStr[guide[player]]);
       shakeTxt.SetText(isShakeEnabled[player] ? "on" : "off");
-      shadowTxt.SetText(isShadowEnabled[player] ? "on" : "off");
       previewTxt.SetText(isPreviewEnabled[player] ? "on" : "off");
       ResumeGui();
     }
@@ -1118,19 +1233,31 @@ void TCYC_MenuPlayerProfilesPopup()
       WindowPrompt(
         "ROTATION",
         "The direction in which the tetris cylinder rotates. "
-        "Set it to reverse if you're too used to regular tetris.",
+        "Set it to 'reverse' to reverse the direction. "
+        "Set it to 'piece' to instead move the piece.",
         "OK",
         NULL,
         &promptWindow);
     }
     else if (rotationLeftArrowBtn.GetState() == STATE_CLICKED 
-      || rotationRightArrowBtn.GetState() == STATE_CLICKED)
+             || rotationRightArrowBtn.GetState() == STATE_CLICKED)
     {
       HaltGui();
+      int rot = rotation[player];
+      if (rotationLeftArrowBtn.GetState() == STATE_CLICKED)
+        --rot;
+      else
+        ++rot;
+
+      if (rot == ROTATE_SIZE)
+        rot = 0;
+      else if (rot < 0)
+        rot = ROTATE_SIZE - 1;
+
+      rotation[player] = rot;
+      rotationTxt.SetText(rotateStr[rotation[player]]);
       rotationLeftArrowBtn.ResetState();
       rotationRightArrowBtn.ResetState();
-      isNormalRotation[player] = !isNormalRotation[player];
-      rotationTxt.SetText(isNormalRotation[player] ? "normal" : "reverse");
       ResumeGui();
     }
     // shake
@@ -1147,7 +1274,7 @@ void TCYC_MenuPlayerProfilesPopup()
         &promptWindow);
     }
     else if (shakeLeftArrowBtn.GetState() == STATE_CLICKED 
-      || shakeRightArrowBtn.GetState() == STATE_CLICKED)
+             || shakeRightArrowBtn.GetState() == STATE_CLICKED)
     {
       HaltGui();
       shakeLeftArrowBtn.ResetState();
@@ -1162,20 +1289,32 @@ void TCYC_MenuPlayerProfilesPopup()
       shadowTxtBtn.ResetState();
 
       WindowPrompt(
-        "SHADOW",
-        "Shows where the current piece will drop.",
+        "GUIDE",
+        "The guide mode. 'Shadow' mode shows where the current piece will drop. "
+        "'Line' mode shows a guide line.",
         "OK",
         NULL,
         &promptWindow);
     }
     else if (shadowLeftArrowBtn.GetState() == STATE_CLICKED 
-      || shadowRightArrowBtn.GetState() == STATE_CLICKED)
+             || shadowRightArrowBtn.GetState() == STATE_CLICKED)
     {
       HaltGui();
+      int gd = guide[player];
+      if (shadowLeftArrowBtn.GetState() == STATE_CLICKED)
+        --gd;
+      else
+        ++gd;
+
+      if (gd == GUIDE_SIZE)
+        gd = 0;
+      else if (gd < 0)
+        gd = GUIDE_SIZE - 1;
+      
+      guide[player] = gd;
+      shadowTxt.SetText(guideStr[guide[player]]);
       shadowLeftArrowBtn.ResetState();
       shadowRightArrowBtn.ResetState();
-      isShadowEnabled[player] = !isShadowEnabled[player];
-      shadowTxt.SetText(isShadowEnabled[player] ? "on" : "off");
       ResumeGui();
     }
     // preview
@@ -1191,7 +1330,7 @@ void TCYC_MenuPlayerProfilesPopup()
         &promptWindow);
     }
     else if (previewLeftArrowBtn.GetState() == STATE_CLICKED 
-      || previewRightArrowBtn.GetState() == STATE_CLICKED)
+             || previewRightArrowBtn.GetState() == STATE_CLICKED)
     {
       HaltGui();
       previewLeftArrowBtn.ResetState();

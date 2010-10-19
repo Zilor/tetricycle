@@ -119,6 +119,9 @@ extern const u32	player3_grab_png_size;
 extern const u8		player4_grab_png[];
 extern const u32	player4_grab_png_size;
 
+extern const u8		logo_alien_png[];
+extern const u32	logo_alien_png_size;
+
 extern const u8		tetris_love_png[];
 extern const u32	tetris_love_png_size;
 
