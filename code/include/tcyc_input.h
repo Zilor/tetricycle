@@ -158,7 +158,7 @@ bool PausePressedAnyPlayer();     ///< Returns true if any player pressed pause.
 
 #define LEFT_PRESSED(i) \
 ( \
-  (g_players[i].isNormalRotation ? \
+  (g_players[i].rotation != ROTATE_REVERSE ? \
     _LEFT_PRESSED(i) \
       : \
     _RIGHT_PRESSED(i)) \
@@ -166,7 +166,7 @@ bool PausePressedAnyPlayer();     ///< Returns true if any player pressed pause.
 
 #define RIGHT_PRESSED(i) \
 ( \
-  (g_players[i].isNormalRotation ? \
+  (g_players[i].rotation != ROTATE_REVERSE ? \
     _RIGHT_PRESSED(i) \
       : \
     _LEFT_PRESSED(i)) \

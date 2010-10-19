@@ -39,6 +39,22 @@
 
 extern ColorGradient g_cubeGradients[COLOR_ID_MAX];
 
+enum
+{
+  ROTATE_NORMAL,
+  ROTATE_REVERSE,
+  ROTATE_PIECE,
+  ROTATE_SIZE
+};
+
+enum
+{
+  GUIDE_OFF,
+  GUIDE_SHADOW,
+  GUIDE_LINE,
+  GUIDE_SIZE
+};
+
 /// This class represents a player.
 class Player
 {
@@ -106,9 +122,9 @@ public:
              playfieldWidth(DEFAULT_PLAYFIELD_WIDTH), 
              playfieldHeight(DEFAULT_PLAYFIELD_HEIGHT), 
              playfieldScale(DEFAULT_PLAYFIELD_SCALE),
-             isNormalRotation(true), 
+             rotation(ROTATE_NORMAL),
+             guide(GUIDE_SHADOW),
              isShakeEnabled(false),
-             isShadowEnabled(true), 
              isPreviewEnabled(true), 
              isHandicapEnabled(false)
   {
@@ -129,9 +145,9 @@ public:
   u8 playfieldHeight;
   u8 playfieldScale;
   u8 id;
-  bool isNormalRotation;
+  u8 rotation;
+  u8 guide;
   bool isShakeEnabled;
-  bool isShadowEnabled;
   bool isPreviewEnabled;
   bool isHandicapEnabled;
 
@@ -282,7 +298,7 @@ public:
   void DoMovement();
 
   /// Draw each tetris piece block as a cube.
-  void DrawBlockAsCube(float x, float y, ColorId colorIdx, u8 alpha = 255, GuiImageData *imgData = NULL);
+  void DrawBlockAsCube(float x, float y, ColorId colorIdx, u8 alpha = 255, GuiImageData *imgData = NULL, bool isGuideDot = false);
 
 private:
   float _GetScale() { return !gameData.powerupData.playfieldScale ? (float)playfieldScale : gameData.powerupData.playfieldScale; } ///< Get the scale factor used for drawing this player's TetriCycle.

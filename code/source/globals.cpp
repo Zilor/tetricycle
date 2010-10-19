@@ -33,6 +33,7 @@ TetrisPieceDesc g_pieceDesc[TETRISPIECE_ID_MAX][4]; // static description of eve
 Player *g_players; // the player instances
 MODPlay g_modPlay; // used for playing the game music
 bool g_isEditMode = false; // true when editing the playfield
+bool g_isClassicMode = false; // classic mode
 int g_tcycMenu; // the current menu state
 Mtx g_view; // the global view matrix
 vec3w_t g_wiiacc[MAX_PLAYERS];     // wiimote acceleration data

@@ -35,6 +35,7 @@ extern Player *g_players;       ///< the player instances
 extern int g_tcycMenu;          ///< the current menu state
 extern Options *g_options;      ///< the global options
 extern GuiTrigger userInput[4]; ///< user input
+extern bool g_isClassicMode;    ///< classic mode
 
 // helper routines
 static void _HandlePowerups(int plyrIdx);
@@ -229,8 +230,15 @@ void _HandleLeftRight(int plyrIdx, bool isEditMode)
     {
       if (!isEditMode)
       {
-        if (player.MovePlayfield(LEFT))
-          player.IncrementCycle();
+        if (player.rotation != ROTATE_PIECE && !g_isClassicMode)
+        {
+          if (player.MovePlayfield(LEFT))
+            player.IncrementCycle();
+        }
+        else
+        {
+          player.MovePiece(LEFT);
+        }
       }
       else
       {
@@ -242,8 +250,15 @@ void _HandleLeftRight(int plyrIdx, bool isEditMode)
     {
       if (!isEditMode)
       {
-        if (player.MovePlayfield(RIGHT))
-          player.DecrementCycle();
+        if (player.rotation != ROTATE_PIECE && !g_isClassicMode)
+        {
+          if (player.MovePlayfield(RIGHT))
+            player.DecrementCycle();
+        }
+        else
+        {
+          player.MovePiece(RIGHT);
+        }
       }
       else
       {

@@ -36,6 +36,7 @@ extern Options *g_options;  ///< the global options
 extern Player *g_players;   ///< the player instances
 extern GXRModeObj *g_vmode; ///< the video mode
 extern Mtx g_view; ///< the global view matrix
+extern bool g_isClassicMode; ///< classic mode
 
 // Reset all state associated with this player.
 void Player::Reset()
@@ -142,17 +143,52 @@ void Player::DrawPiece(TetrisPiece* cp, u8 alpha)
 // Draw where the current piece will end up if dropped.
 void Player::DrawPieceShadow()
 {
-  if (!isShadowEnabled)
+  if (guide == GUIDE_OFF)
     return;
 
-  // Create a copy of the current piece, move it down as much as possible, 
-  // then draw it. Only draw the shadow piece if it is more than x spaces 
-  // away from the actual piece.
-  TetrisPiece piece = currPiece;
-  int y = piece.GetY();
-  while (MovePiece(DOWN, &piece));
-  if (y < 7 && piece.GetY() > 11)
-    DrawPiece(&piece, 145);
+  int y = 0;
+  if (guide == GUIDE_SHADOW)
+  {
+    // Create a copy of the current piece, move it down as much as possible, 
+    // then draw it. Only draw the shadow piece if it is more than x spaces 
+    // away from the actual piece.
+    TetrisPiece piece = currPiece;
+    y = piece.GetY();
+    while (MovePiece(DOWN, &piece));
+    if (y < 7 && piece.GetY() > 11)
+      DrawPiece(&piece, 145);
+
+    return;
+  }
+  
+  // else: GUIDE_LINE
+  int x = 0;
+  const TetrisPieceDesc &desc = currPiece.GetPieceDescription();
+
+  // Calculate the leftmost lowest block.
+  for (int my = 0; my < 4; ++my)
+  {
+    for (int mx = 0; mx < 4; ++mx)
+    {
+      if (desc.map[mx][my])
+      {
+        x = currPiece.GetX() + mx;
+        y = currPiece.GetY() + my + 1;
+        break;
+      }
+    }
+  }
+
+  if (x < 0)
+    x += playfieldWidth;
+  else if (x >= playfieldWidth)
+    x -= playfieldWidth;
+  
+  for (; y < playfieldHeight; ++y)
+  {
+    if (gameData.playfield[x][y].pieceId == TETRISPIECE_ID_NONE)
+      DrawBlockAsCube(x, y, COLOR_ID_RED, 128, NULL, true);
+  }
 }
 
 // Draw the base of the TetriCycle.
@@ -251,7 +287,7 @@ bool Player::MovePiece(int type, TetrisPiece *cp)
   int oldy = piece.GetY();
   int x = oldx;
 
-  switch(type)
+  switch (type)
   {
     case DOWN:
       piece.SetY(oldy + 1);
@@ -259,14 +295,14 @@ bool Player::MovePiece(int type, TetrisPiece *cp)
 
     case LEFT:
       --x;
-      if (x < 0)
+      if (!g_isClassicMode && x < 0)
         x += playfieldWidth;
       piece.SetX(x);
       break;
 
     case RIGHT:
       ++x;
-      if (x >= playfieldWidth)
+      if (!g_isClassicMode && x >= playfieldWidth)
         x -= playfieldWidth;
       piece.SetX(x);
       break;
@@ -370,9 +406,12 @@ void Player::DoMovement()
 }
 
 // Draw each tetris piece block as a cube.
-void Player::DrawBlockAsCube(float x, float y, ColorId colorIdx, u8 alpha, GuiImageData *imgData)
+void Player::DrawBlockAsCube(float x, float y, ColorId colorIdx, u8 alpha, GuiImageData *imgData, bool isGuideDot)
 {
   float scale = _GetScale() / (float)DEFAULT_PLAYFIELD_SCALE;
+  if (g_isClassicMode)
+    scale -= 0.1;
+
   float vx = 0;
 
   if (g_options->players == 1 && !g_options->isNetplay)
@@ -424,10 +463,18 @@ void Player::DrawBlockAsCube(float x, float y, ColorId colorIdx, u8 alpha, GuiIm
   // TRS ==> Scale should be multiplied last.
   static Mtx mscale;
   guMtxIdentity(mscale);
-  guMtxScale(mscale, scale, scale, scale);
+  if (!isGuideDot)
+  {
+    guMtxScale(mscale, scale, scale, scale);
+  }
+  else
+  {
+    float dotScale = scale * 0.35;
+    guMtxScale(mscale, dotScale, dotScale, dotScale);
+  }
   
   // The angle between cubes in degrees.
-  float cubeRotation = cubeAngle;
+  float cubeRotation = !g_isClassicMode ? cubeAngle : 0;
 
   if (offsetFromCenter < 0)
   {
@@ -546,10 +593,21 @@ bool Player::_CanPlacePiece(TetrisPiece *cp)
 
         // Outside the map?
         // Allow the screen to wrap horizontally.
+        
         if (calcx >= playfieldWidth)
-          calcx -= playfieldWidth;
+        {
+          if (!g_isClassicMode)
+            calcx -= playfieldWidth;
+          else
+            return false;
+        }
         else if (calcx < 0)
-          calcx += playfieldWidth;
+        {
+          if (!g_isClassicMode)
+            calcx += playfieldWidth;
+          else
+            return false;
+        }
 
         if (calcy >= playfieldHeight)
           return false;
