@@ -359,396 +359,397 @@
 <a name="l00330"></a>00330   <span class="comment">// Write piece to map if it can&#39;t be moved more.</span>
 <a name="l00331"></a>00331   <span class="keywordflow">if</span> (!canMove)
 <a name="l00332"></a>00332   {
-<a name="l00333"></a>00333     <a class="code" href="struct_tetris_piece_connectivity_info.html" title="Connectivity information used for powerup pieces.">TetrisPieceConnectivityInfo</a> *info = (<a class="code" href="class_player.html#a32324e8fa2a68fb503a99914fe55f7ae" title="the currently falling tetris piece">currPiece</a>.GetPowerupId() == POWERUP_ID_NONE) ? 
-<a name="l00334"></a>00334       NULL : <span class="keyword">new</span> <a class="code" href="struct_tetris_piece_connectivity_info.html" title="Connectivity information used for powerup pieces.">TetrisPieceConnectivityInfo</a>(<a class="code" href="class_player.html#a32324e8fa2a68fb503a99914fe55f7ae" title="the currently falling tetris piece">currPiece</a>.GetPowerupId());
-<a name="l00335"></a>00335 
-<a name="l00336"></a>00336     <span class="keywordflow">for</span> (<span class="keywordtype">int</span> y = 0; y &lt; 4; ++y)
-<a name="l00337"></a>00337     {
-<a name="l00338"></a>00338       <span class="keywordflow">for</span> (<span class="keywordtype">int</span> x = 0; x &lt; 4; ++x)
-<a name="l00339"></a>00339       {
-<a name="l00340"></a>00340         <span class="comment">// The playfield is a playfield_width x playfield_height grid </span>
-<a name="l00341"></a>00341         <span class="comment">// (default: 10x20); the upper left corner corresponds to (0,0).</span>
-<a name="l00342"></a>00342         <span class="comment">// (piece.x, piece.y) is a playfield coordinate that corresponds to the </span>
-<a name="l00343"></a>00343         <span class="comment">// upper left corner of the tetris piece&#39;s 4x4 grid. Thus,</span>
-<a name="l00344"></a>00344         <span class="comment">// (calcx, calcy) gives the playfield coordinate for each of the </span>
-<a name="l00345"></a>00345         <span class="comment">// tetris piece&#39;s 4x4 grid elements.</span>
-<a name="l00346"></a>00346         <span class="keywordtype">int</span> calcx = <a class="code" href="class_player.html#a32324e8fa2a68fb503a99914fe55f7ae" title="the currently falling tetris piece">currPiece</a>.GetX() + x;
-<a name="l00347"></a>00347         <span class="keywordtype">int</span> calcy = <a class="code" href="class_player.html#a32324e8fa2a68fb503a99914fe55f7ae" title="the currently falling tetris piece">currPiece</a>.GetY() + y;
-<a name="l00348"></a>00348 
-<a name="l00349"></a>00349         <span class="comment">// Allow the screen to wrap horizontally.</span>
-<a name="l00350"></a>00350         <span class="keywordflow">if</span> (calcx &gt;= playfieldWidth)
-<a name="l00351"></a>00351           calcx -= playfieldWidth;
-<a name="l00352"></a>00352         <span class="keywordflow">else</span> <span class="keywordflow">if</span> (calcx &lt; 0)
-<a name="l00353"></a>00353           calcx += playfieldWidth;
-<a name="l00354"></a>00354 
-<a name="l00355"></a>00355         <span class="keywordflow">if</span> (calcx &gt;= 0 &amp;&amp; calcx &lt; playfieldWidth &amp;&amp; calcy &gt;= 0 
-<a name="l00356"></a>00356             &amp;&amp; calcy &lt; playfieldHeight &amp;&amp; desc.map[x][y])
-<a name="l00357"></a>00357         {
-<a name="l00358"></a>00358           <a class="code" href="class_player.html#ae78ce588bf6bcab5e7514530508458a1" title="the player game data">gameData</a>.playfield[calcx][calcy].pieceId = <a class="code" href="class_player.html#a32324e8fa2a68fb503a99914fe55f7ae" title="the currently falling tetris piece">currPiece</a>.GetPieceId();
-<a name="l00359"></a>00359           <a class="code" href="class_player.html#ae78ce588bf6bcab5e7514530508458a1" title="the player game data">gameData</a>.playfield[calcx][calcy].SetConnectivityInfo(info);
-<a name="l00360"></a>00360         }
-<a name="l00361"></a>00361       }
-<a name="l00362"></a>00362     }
-<a name="l00363"></a>00363   }
-<a name="l00364"></a>00364 
-<a name="l00365"></a>00365   <span class="comment">// Player can&#39;t move or place ==&gt; dead.</span>
-<a name="l00366"></a>00366   <span class="keywordflow">if</span> (!canMove &amp;&amp; !canplace)
-<a name="l00367"></a>00367   {
-<a name="l00368"></a>00368     <span class="keywordflow">if</span> (g_options-&gt;<a class="code" href="class_options.html#a0d25e532fe2a18548f7a6f1eba666f9e" title="the number of players">players</a> == 1)
-<a name="l00369"></a>00369     {
-<a name="l00370"></a>00370       <a class="code" href="class_player.html#ae78ce588bf6bcab5e7514530508458a1" title="the player game data">gameData</a>.isDead = <span class="keyword">true</span>;
-<a name="l00371"></a>00371       <a class="code" href="tcyc__menu_8h.html#a2780010a7fa16d3d236a8d9a7ca4a62f" title="Pause the game.">TCYC_MenuPause</a>(<span class="stringliteral">&quot;Game Over&quot;</span>);
-<a name="l00372"></a>00372       <span class="keywordflow">return</span>;
-<a name="l00373"></a>00373     }
-<a name="l00374"></a>00374 
-<a name="l00375"></a>00375     <a class="code" href="class_player.html#ae78ce588bf6bcab5e7514530508458a1" title="the player game data">gameData</a>.isDead = <span class="keyword">true</span>;
-<a name="l00376"></a>00376     _GetWinner();
-<a name="l00377"></a>00377     <span class="keywordflow">return</span>;
-<a name="l00378"></a>00378   }
-<a name="l00379"></a>00379 
-<a name="l00380"></a>00380   <span class="comment">// Can&#39;t move, make a new block.</span>
-<a name="l00381"></a>00381   <span class="keywordflow">if</span> (!canMove) 
-<a name="l00382"></a>00382   {
-<a name="l00383"></a>00383     <span class="keywordtype">int</span> linesInFrame = 0;
-<a name="l00384"></a>00384     
-<a name="l00385"></a>00385     <span class="keywordflow">while</span> (_RemoveLines())
-<a name="l00386"></a>00386       ++linesInFrame;
-<a name="l00387"></a>00387 
-<a name="l00388"></a>00388     <span class="keywordflow">if</span> (linesInFrame == 3)
-<a name="l00389"></a>00389     {
-<a name="l00390"></a>00390       <a class="code" href="class_player.html#ae78ce588bf6bcab5e7514530508458a1" title="the player game data">gameData</a>.score++; <span class="comment">// add one bonus point if you cleared 3 lines</span>
-<a name="l00391"></a>00391     }
-<a name="l00392"></a>00392     <span class="keywordflow">else</span> <span class="keywordflow">if</span> (linesInFrame == 4)
-<a name="l00393"></a>00393     {
-<a name="l00394"></a>00394       <a class="code" href="class_player.html#ae78ce588bf6bcab5e7514530508458a1" title="the player game data">gameData</a>.score += 2;          <span class="comment">// add two bonus points if you get a tetris</span>
-<a name="l00395"></a>00395       MODPlay_Pause(&amp;<a class="code" href="globals_8cpp.html#aaa578ed87b2e7cac5a285e425f2165ad" title="used for playing the game music">g_modPlay</a>, 1); <span class="comment">// pause music</span>
-<a name="l00396"></a>00396       g_tetrisCheerSound-&gt;Play();   <span class="comment">// Yay you got a tetris!</span>
-<a name="l00397"></a>00397     }
-<a name="l00398"></a>00398 
-<a name="l00399"></a>00399     _SpawnNextPiece();
-<a name="l00400"></a>00400   }
-<a name="l00401"></a>00401 
-<a name="l00402"></a>00402 <span class="comment">//#ifndef EMU</span>
-<a name="l00403"></a>00403 <span class="comment">//  if (g_options-&gt;netplay == 1 &amp;&amp; plyrIdx == 0)</span>
-<a name="l00404"></a>00404 <span class="comment">//    GC_BBA_SendUDPE(9003, (unsigned char*)map[0], 200);</span>
-<a name="l00405"></a>00405 <span class="comment">//#endif</span>
-<a name="l00406"></a>00406 }
-<a name="l00407"></a>00407 
-<a name="l00408"></a>00408 <span class="comment">// Draw each tetris piece block as a cube.</span>
-<a name="l00409"></a><a class="code" href="class_player.html#a874ac3ef1bf9a95ad608c13cf73c74a7">00409</a> <span class="keywordtype">void</span> <a class="code" href="class_player.html#a874ac3ef1bf9a95ad608c13cf73c74a7" title="Draw each tetris piece block as a cube.">Player::DrawBlockAsCube</a>(<span class="keywordtype">float</span> x, <span class="keywordtype">float</span> y, <a class="code" href="_color_8h.html#ac0dddfeb58e0f6855f22796d240b070d" title="Enumerates all the color types.">ColorId</a> colorIdx, u8 alpha, GuiImageData *imgData, <span class="keywordtype">bool</span> isGuideDot)
-<a name="l00410"></a>00410 {
-<a name="l00411"></a>00411   <span class="keywordtype">float</span> scale = _GetScale() / (float)DEFAULT_PLAYFIELD_SCALE;
-<a name="l00412"></a>00412   <span class="keywordflow">if</span> (<a class="code" href="globals_8cpp.html#a636721efce9e6bebd8e60d4c6e596778" title="classic mode">g_isClassicMode</a>)
-<a name="l00413"></a>00413     scale -= 0.1;
-<a name="l00414"></a>00414 
-<a name="l00415"></a>00415   <span class="keywordtype">float</span> vx = 0;
-<a name="l00416"></a>00416 
-<a name="l00417"></a>00417   <span class="keywordflow">if</span> (g_options-&gt;<a class="code" href="class_options.html#a0d25e532fe2a18548f7a6f1eba666f9e" title="the number of players">players</a> == 1 &amp;&amp; !g_options-&gt;isNetplay)
-<a name="l00418"></a>00418   {
-<a name="l00419"></a>00419     
-<a name="l00420"></a>00420   }
-<a name="l00421"></a>00421   <span class="keywordflow">else</span> <span class="keywordflow">if</span> (g_options-&gt;<a class="code" href="class_options.html#a0d25e532fe2a18548f7a6f1eba666f9e" title="the number of players">players</a> == 2)
-<a name="l00422"></a>00422   {
-<a name="l00423"></a>00423     <span class="keywordflow">if</span> (<span class="keywordtype">id</span> == 0)
-<a name="l00424"></a>00424       vx = -106.6;
-<a name="l00425"></a>00425     <span class="keywordflow">else</span>
-<a name="l00426"></a>00426       vx = 213.4;
-<a name="l00427"></a>00427   }
-<a name="l00428"></a>00428   <span class="keywordflow">else</span> <span class="keywordflow">if</span> (g_options-&gt;<a class="code" href="class_options.html#a0d25e532fe2a18548f7a6f1eba666f9e" title="the number of players">players</a> == 3)
-<a name="l00429"></a>00429   {
-<a name="l00430"></a>00430     <span class="keywordflow">if</span> (<span class="keywordtype">id</span> == 0)
-<a name="l00431"></a>00431       vx = -210;
-<a name="l00432"></a>00432     <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<span class="keywordtype">id</span> == 2)
-<a name="l00433"></a>00433       vx = 210;
-<a name="l00434"></a>00434   }
-<a name="l00435"></a>00435   <span class="keywordflow">else</span> <span class="keywordflow">if</span> (g_options-&gt;<a class="code" href="class_options.html#a0d25e532fe2a18548f7a6f1eba666f9e" title="the number of players">players</a> == 4)
-<a name="l00436"></a>00436   {
-<a name="l00437"></a>00437     <span class="keywordflow">if</span> (<span class="keywordtype">id</span> == 0)
-<a name="l00438"></a>00438       vx = -240;
-<a name="l00439"></a>00439     <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<span class="keywordtype">id</span> == 1)
-<a name="l00440"></a>00440       vx = -80;
-<a name="l00441"></a>00441     <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<span class="keywordtype">id</span> == 2)
-<a name="l00442"></a>00442       vx = 80;
-<a name="l00443"></a>00443     <span class="keywordflow">else</span>
-<a name="l00444"></a>00444       vx = 240;
-<a name="l00445"></a>00445   }
-<a name="l00446"></a>00446 
-<a name="l00447"></a>00447   GX_SetViewport(vx + playfieldDX, playfieldDY, <a class="code" href="main_8cpp.html#a882bccb3f0627316d16f6e50ab79893b" title="the video mode">g_vmode</a>-&gt;fbWidth, <a class="code" href="main_8cpp.html#a882bccb3f0627316d16f6e50ab79893b" title="the video mode">g_vmode</a>-&gt;efbHeight, 0, 1);
-<a name="l00448"></a>00448 
-<a name="l00449"></a>00449   <span class="comment">// x should be a value in {0,...,playfield_width - 1}</span>
-<a name="l00450"></a>00450   <span class="comment">// y should be a value in {0,...,playfield_height - 1}</span>
-<a name="l00451"></a>00451   
-<a name="l00452"></a>00452   <span class="comment">// Calculate the offset from the center of the playfield.</span>
-<a name="l00453"></a>00453   <span class="keywordtype">int</span> centerRight = playfieldWidth &gt;&gt; 1; <span class="comment">// playfield_width / 2</span>
-<a name="l00454"></a>00454   <span class="keywordtype">int</span> centerLeft  = centerRight - 1;
-<a name="l00455"></a>00455   <span class="keywordtype">int</span> offsetFromCenter = (x &gt; centerLeft) ? x - centerLeft : x - centerRight;
-<a name="l00456"></a>00456 
-<a name="l00457"></a>00457   <span class="comment">// Convert y to an offset from the bottom, and scale it.</span>
-<a name="l00458"></a>00458   y = ((playfieldHeight &gt;&gt; 1) - 1 - y) * scale; <span class="comment">// (playfield_height / 2) - 1</span>
-<a name="l00459"></a>00459 
-<a name="l00460"></a>00460   <span class="comment">// The half-cube z-translation.</span>
-<a name="l00461"></a>00461   <span class="keywordtype">float</span> hz = scale / 2;
-<a name="l00462"></a>00462 
-<a name="l00463"></a>00463   <span class="comment">// TRS ==&gt; Scale should be multiplied last.</span>
-<a name="l00464"></a>00464   <span class="keyword">static</span> Mtx mscale;
-<a name="l00465"></a>00465   guMtxIdentity(mscale);
-<a name="l00466"></a>00466   <span class="keywordflow">if</span> (!isGuideDot)
-<a name="l00467"></a>00467   {
-<a name="l00468"></a>00468     guMtxScale(mscale, scale, scale, scale);
-<a name="l00469"></a>00469   }
-<a name="l00470"></a>00470   <span class="keywordflow">else</span>
-<a name="l00471"></a>00471   {
-<a name="l00472"></a>00472     <span class="keywordtype">float</span> dotScale = scale * 0.35;
-<a name="l00473"></a>00473     guMtxScale(mscale, dotScale, dotScale, dotScale);
-<a name="l00474"></a>00474   }
-<a name="l00475"></a>00475   
-<a name="l00476"></a>00476   <span class="comment">// The angle between cubes in degrees.</span>
-<a name="l00477"></a>00477   <span class="keywordtype">float</span> cubeRotation = !<a class="code" href="globals_8cpp.html#a636721efce9e6bebd8e60d4c6e596778" title="classic mode">g_isClassicMode</a> ? cubeAngle : 0;
-<a name="l00478"></a>00478 
-<a name="l00479"></a>00479   <span class="keywordflow">if</span> (offsetFromCenter &lt; 0)
-<a name="l00480"></a>00480   {
-<a name="l00481"></a>00481     scale *= -1;
-<a name="l00482"></a>00482     cubeRotation *= -1;
-<a name="l00483"></a>00483     offsetFromCenter *= -1;
-<a name="l00484"></a>00484   }
-<a name="l00485"></a>00485   
-<a name="l00486"></a>00486   <span class="comment">// The cube translation matrix.</span>
-<a name="l00487"></a>00487   <span class="comment">// Translate the cube along the x-axis by its length.</span>
-<a name="l00488"></a>00488   <span class="keyword">static</span> Mtx mtrans;
-<a name="l00489"></a>00489   guMtxIdentity(mtrans);
-<a name="l00490"></a>00490   guMtxTransApply(mtrans, mtrans, scale, 0.f, 0.f); <span class="comment">// src, dst, x, y, z</span>
-<a name="l00491"></a>00491 
-<a name="l00492"></a>00492   <span class="comment">// The cube rotation matrix.</span>
-<a name="l00493"></a>00493   <span class="comment">// Rotate the cube about the y-axis by cubeRotation degrees.</span>
-<a name="l00494"></a>00494   <span class="keyword">static</span> guVector cubeAxis = {0, 1, 0}; <span class="comment">// y-axis</span>
-<a name="l00495"></a>00495   <span class="keyword">static</span> Mtx mrot;
-<a name="l00496"></a>00496   guMtxIdentity(mrot);
-<a name="l00497"></a>00497   guMtxRotAxisDeg(mrot, &amp;cubeAxis, cubeRotation);
-<a name="l00498"></a>00498 
-<a name="l00499"></a>00499   <span class="keyword">static</span> Mtx mrottrans;
-<a name="l00500"></a>00500   guMtxIdentity(mrottrans);
-<a name="l00501"></a>00501   guMtxConcat(mrot, mtrans, mrottrans);
-<a name="l00502"></a>00502 
-<a name="l00503"></a>00503   <span class="keyword">static</span> Mtx model;
-<a name="l00504"></a>00504   <span class="keyword">static</span> Mtx modelview;
-<a name="l00505"></a>00505 
-<a name="l00506"></a>00506   guMtxIdentity(model);
-<a name="l00507"></a>00507 
-<a name="l00508"></a>00508   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; offsetFromCenter - 1; ++i)
-<a name="l00509"></a>00509   {
-<a name="l00510"></a>00510     guMtxConcat(model, mrottrans, model);
-<a name="l00511"></a>00511   }
-<a name="l00512"></a>00512 
-<a name="l00513"></a>00513   guMtxConcat(model, mrot, model);
-<a name="l00514"></a>00514 
-<a name="l00515"></a>00515   <span class="comment">// This halfcubetrans is applied before all other translations and rotations.</span>
-<a name="l00516"></a>00516   <span class="keyword">static</span> Mtx halfcubetrans;
-<a name="l00517"></a>00517   guMtxIdentity(halfcubetrans);
-<a name="l00518"></a>00518   guMtxTransApply(halfcubetrans, halfcubetrans, scale / 2, 0.f, -hz);
-<a name="l00519"></a>00519 
-<a name="l00520"></a>00520   guMtxConcat(model, halfcubetrans, model);
-<a name="l00521"></a>00521   guMtxConcat(model, mscale, model);
-<a name="l00522"></a>00522   
-<a name="l00523"></a>00523   <span class="comment">// Translate the cube to the correct y and z position.</span>
-<a name="l00524"></a>00524   <span class="keyword">static</span> Mtx trans;
-<a name="l00525"></a>00525   guMtxIdentity(trans);
-<a name="l00526"></a>00526   guMtxTransApply(trans, trans, 0, y, -32); <span class="comment">// src, dst, x, y, z</span>
-<a name="l00527"></a>00527   
-<a name="l00528"></a>00528   guMtxConcat(trans, model, model);
-<a name="l00529"></a>00529   guMtxConcat(<a class="code" href="globals_8cpp.html#a58d8befc3355f9d0dffa6944e8d550fa" title="the global view matrix">g_view</a>, model, modelview);
-<a name="l00530"></a>00530 
-<a name="l00531"></a>00531   <span class="comment">// load the modelview matrix into matrix memory</span>
-<a name="l00532"></a>00532   GX_LoadPosMtxImm(modelview, GX_PNMTX0);
-<a name="l00533"></a>00533   <a class="code" href="main_8h.html#a3532d690da80d97b13e712c539f229b7" title="Draws a unit cube centered at the origin.">GX_Cube</a>(colorIdx, alpha, imgData);
-<a name="l00534"></a>00534   GX_SetViewport(0, 0, <a class="code" href="main_8cpp.html#a882bccb3f0627316d16f6e50ab79893b" title="the video mode">g_vmode</a>-&gt;fbWidth, <a class="code" href="main_8cpp.html#a882bccb3f0627316d16f6e50ab79893b" title="the video mode">g_vmode</a>-&gt;efbHeight, 0, 1);
-<a name="l00535"></a>00535 }
-<a name="l00536"></a>00536 
-<a name="l00537"></a>00537 <span class="comment">//--- PRIVATE ---</span>
-<a name="l00538"></a>00538 
-<a name="l00539"></a>00539 <span class="keywordtype">void</span> Player::_GetWinner()
-<a name="l00540"></a>00540 {
-<a name="l00541"></a>00541   <span class="keywordtype">int</span> ndead = 0;
-<a name="l00542"></a>00542   <span class="keywordtype">int</span> winner = 0;
-<a name="l00543"></a>00543 
-<a name="l00544"></a>00544   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; g_options-&gt;<a class="code" href="class_options.html#a0d25e532fe2a18548f7a6f1eba666f9e" title="the number of players">players</a>; ++i)
-<a name="l00545"></a>00545   {
-<a name="l00546"></a>00546     <span class="keywordflow">if</span> (g_players[i].<a class="code" href="class_player.html#ae78ce588bf6bcab5e7514530508458a1" title="the player game data">gameData</a>.isDead)
-<a name="l00547"></a>00547       ++ndead;
-<a name="l00548"></a>00548     <span class="keywordflow">else</span>
-<a name="l00549"></a>00549       winner = i;
-<a name="l00550"></a>00550   }
-<a name="l00551"></a>00551 
-<a name="l00552"></a>00552   <span class="keywordflow">if</span> (ndead == g_options-&gt;<a class="code" href="class_options.html#a0d25e532fe2a18548f7a6f1eba666f9e" title="the number of players">players</a> - 1)
-<a name="l00553"></a>00553     _DisplayWinner(winner);
-<a name="l00554"></a>00554 }
-<a name="l00555"></a>00555 
-<a name="l00556"></a>00556 <span class="keywordtype">void</span> Player::_DisplayWinner(<span class="keywordtype">int</span> winner)
-<a name="l00557"></a>00557 {
-<a name="l00558"></a>00558   <span class="keywordtype">char</span> buf[15];
-<a name="l00559"></a>00559   sprintf(buf, <span class="stringliteral">&quot;Player %d wins!&quot;</span>, winner + 1);
-<a name="l00560"></a>00560   <a class="code" href="tcyc__menu_8h.html#a2780010a7fa16d3d236a8d9a7ca4a62f" title="Pause the game.">TCYC_MenuPause</a>(buf);
-<a name="l00561"></a>00561 }
-<a name="l00562"></a>00562 
-<a name="l00563"></a>00563 <span class="keywordtype">void</span> Player::_IncreaseLevelAllBut(<span class="keywordtype">int</span> plyrIdx)
-<a name="l00564"></a>00564 {
-<a name="l00565"></a>00565   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; g_options-&gt;<a class="code" href="class_options.html#a0d25e532fe2a18548f7a6f1eba666f9e" title="the number of players">players</a>; ++i)
-<a name="l00566"></a>00566   {
-<a name="l00567"></a>00567     <span class="keywordflow">if</span> (i != plyrIdx)
-<a name="l00568"></a>00568       g_players[i]._IncreaseLevel();
-<a name="l00569"></a>00569   }
-<a name="l00570"></a>00570 }
-<a name="l00571"></a>00571 <span class="comment"></span>
-<a name="l00572"></a>00572 <span class="comment">/** If no piece is specified then the player&#39;s current piece is used. */</span>
-<a name="l00573"></a>00573 <span class="keywordtype">bool</span> Player::_CanPlacePiece(<a class="code" href="class_tetris_piece.html" title="A tetris piece.">TetrisPiece</a> *cp)
-<a name="l00574"></a>00574 {
-<a name="l00575"></a>00575   <a class="code" href="class_tetris_piece.html" title="A tetris piece.">TetrisPiece</a> &amp;piece = !cp ? <a class="code" href="class_player.html#a32324e8fa2a68fb503a99914fe55f7ae" title="the currently falling tetris piece">currPiece</a> : *cp;
-<a name="l00576"></a>00576   <span class="keyword">const</span> <a class="code" href="struct_tetris_piece_desc.html" title="Every piece fits into a 4x4 grid.">TetrisPieceDesc</a> &amp;desc = piece.GetPieceDescription();
-<a name="l00577"></a>00577 
-<a name="l00578"></a>00578   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> y = 0; y &lt; 4; y++)
-<a name="l00579"></a>00579   {
-<a name="l00580"></a>00580     <span class="keywordflow">for</span> (<span class="keywordtype">int</span> x = 0; x &lt; 4; x++)
-<a name="l00581"></a>00581     {
-<a name="l00582"></a>00582       <span class="comment">// Only check squares that are set in the map</span>
-<a name="l00583"></a>00583       <span class="keywordflow">if</span> (desc.map[x][y])
-<a name="l00584"></a>00584       {
-<a name="l00585"></a>00585         <span class="comment">// The playfield is a playfield_width x playfield_height grid </span>
-<a name="l00586"></a>00586         <span class="comment">// (default: 10x20); the upper left corner corresponds to (0,0).</span>
-<a name="l00587"></a>00587         <span class="comment">// (piece.x, piece.y) is a playfield coordinate that corresponds to the </span>
-<a name="l00588"></a>00588         <span class="comment">// upper left corner of the tetris piece&#39;s 4x4 grid. Thus,</span>
-<a name="l00589"></a>00589         <span class="comment">// (calcx, calcy) gives the playfield coordinate for each of the </span>
-<a name="l00590"></a>00590         <span class="comment">// tetris piece&#39;s 4x4 grid elements.</span>
-<a name="l00591"></a>00591         <span class="keywordtype">int</span> calcx = piece.GetX() + x;
-<a name="l00592"></a>00592         <span class="keywordtype">int</span> calcy = piece.GetY() + y;
-<a name="l00593"></a>00593 
-<a name="l00594"></a>00594         <span class="comment">// Outside the map?</span>
-<a name="l00595"></a>00595         <span class="comment">// Allow the screen to wrap horizontally.</span>
-<a name="l00596"></a>00596         
-<a name="l00597"></a>00597         <span class="keywordflow">if</span> (calcx &gt;= playfieldWidth)
-<a name="l00598"></a>00598         {
-<a name="l00599"></a>00599           <span class="keywordflow">if</span> (!<a class="code" href="globals_8cpp.html#a636721efce9e6bebd8e60d4c6e596778" title="classic mode">g_isClassicMode</a>)
-<a name="l00600"></a>00600             calcx -= playfieldWidth;
-<a name="l00601"></a>00601           <span class="keywordflow">else</span>
-<a name="l00602"></a>00602             <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00603"></a>00603         }
-<a name="l00604"></a>00604         <span class="keywordflow">else</span> <span class="keywordflow">if</span> (calcx &lt; 0)
-<a name="l00605"></a>00605         {
-<a name="l00606"></a>00606           <span class="keywordflow">if</span> (!<a class="code" href="globals_8cpp.html#a636721efce9e6bebd8e60d4c6e596778" title="classic mode">g_isClassicMode</a>)
-<a name="l00607"></a>00607             calcx += playfieldWidth;
-<a name="l00608"></a>00608           <span class="keywordflow">else</span>
-<a name="l00609"></a>00609             <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00610"></a>00610         }
-<a name="l00611"></a>00611 
-<a name="l00612"></a>00612         <span class="keywordflow">if</span> (calcy &gt;= playfieldHeight)
-<a name="l00613"></a>00613           <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00614"></a>00614 
-<a name="l00615"></a>00615         <span class="comment">// On top of something else?</span>
-<a name="l00616"></a>00616         <span class="keywordflow">if</span> (calcy &gt;= 0 
-<a name="l00617"></a>00617             &amp;&amp; <a class="code" href="class_player.html#ae78ce588bf6bcab5e7514530508458a1" title="the player game data">gameData</a>.playfield[calcx][calcy].pieceId != TETRISPIECE_ID_NONE)
-<a name="l00618"></a>00618           <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00619"></a>00619       }
-<a name="l00620"></a>00620     }
-<a name="l00621"></a>00621   }
-<a name="l00622"></a>00622 
-<a name="l00623"></a>00623   <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00624"></a>00624 }
-<a name="l00625"></a>00625 
-<a name="l00626"></a>00626 <span class="comment">// Removes all the completed lines.</span>
-<a name="l00627"></a>00627 <span class="keywordtype">bool</span> Player::_RemoveLines()
-<a name="l00628"></a>00628 {
-<a name="l00629"></a>00629   <span class="keywordtype">int</span> blocksInLine = 0;
-<a name="l00630"></a>00630 
-<a name="l00631"></a>00631   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> y = 0; y &lt; playfieldHeight; ++y)
-<a name="l00632"></a>00632   {
-<a name="l00633"></a>00633     <span class="keywordflow">for</span> (<span class="keywordtype">int</span> x = 0; x &lt; playfieldWidth; ++x)
-<a name="l00634"></a>00634     {
-<a name="l00635"></a>00635       <span class="keywordflow">if</span> (<a class="code" href="class_player.html#ae78ce588bf6bcab5e7514530508458a1" title="the player game data">gameData</a>.playfield[x][y].pieceId != TETRISPIECE_ID_NONE)
-<a name="l00636"></a>00636         ++blocksInLine;
-<a name="l00637"></a>00637     }
-<a name="l00638"></a>00638 
-<a name="l00639"></a>00639     <span class="keywordflow">if</span> (blocksInLine == playfieldWidth)
-<a name="l00640"></a>00640     {
-<a name="l00641"></a>00641       _RemoveLine(y);
-<a name="l00642"></a>00642       <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00643"></a>00643     }
-<a name="l00644"></a>00644 
-<a name="l00645"></a>00645     blocksInLine = 0;
-<a name="l00646"></a>00646   }
-<a name="l00647"></a>00647 
-<a name="l00648"></a>00648   <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00649"></a>00649 }
-<a name="l00650"></a>00650 
-<a name="l00651"></a>00651 <span class="comment">// Removes the line at the given row.</span>
-<a name="l00652"></a>00652 <span class="keywordtype">void</span> Player::_RemoveLine(<span class="keywordtype">int</span> line)
-<a name="l00653"></a>00653 {
-<a name="l00654"></a>00654   <a class="code" href="struct_tetris_piece_connectivity_info.html" title="Connectivity information used for powerup pieces.">TetrisPieceConnectivityInfo</a> *connectivityInfo = NULL;
-<a name="l00655"></a>00655 
-<a name="l00656"></a>00656   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> x = 0; x &lt; playfieldWidth; ++x)
-<a name="l00657"></a>00657   {
-<a name="l00658"></a>00658     <span class="comment">// If a block has connectivity info then it belongs to a powerup piece.</span>
-<a name="l00659"></a>00659     connectivityInfo = <a class="code" href="class_player.html#ae78ce588bf6bcab5e7514530508458a1" title="the player game data">gameData</a>.playfield[x][line].connectivityInfo;
-<a name="l00660"></a>00660     <span class="keywordflow">if</span> (connectivityInfo)
-<a name="l00661"></a>00661     {
-<a name="l00662"></a>00662       connectivityInfo-&gt;counter--;
-<a name="l00663"></a>00663 
-<a name="l00664"></a>00664       <span class="keywordflow">if</span> (connectivityInfo-&gt;counter == 0)
-<a name="l00665"></a>00665       {
-<a name="l00666"></a>00666         <span class="comment">// Add powerup to powerup queue.</span>
-<a name="l00667"></a>00667         <span class="keywordtype">int</span> slot = <a class="code" href="class_player.html#ab4f99fa1ebee60a16c20bb93cb98f3ad" title="Get an open slot for storing an acquired powerup.">GetPowerupQueueSlot</a>();
-<a name="l00668"></a>00668         <span class="keywordflow">if</span> (slot &gt;= 0)
-<a name="l00669"></a>00669         {
-<a name="l00670"></a>00670           <a class="code" href="class_powerup.html" title="The base class for powerups.">Powerup</a> *powerup = <a class="code" href="class_powerup_utils.html#aaaca4cb932737eb02416cd4c82de7a65" title="Returns a static Powerup instance.">PowerupUtils::GetStaticInstance</a>(connectivityInfo-&gt;powerupId);
-<a name="l00671"></a>00671           <a class="code" href="class_player.html#a22d011f416acc5834c5d6ad99f170e4a" title="Adds the acquired powerup to the powerup queue.">QueuePowerup</a>(powerup, slot);
-<a name="l00672"></a>00672         }
-<a name="l00673"></a>00673 
-<a name="l00674"></a>00674         <a class="code" href="class_player.html#ae78ce588bf6bcab5e7514530508458a1" title="the player game data">gameData</a>.playfield[x][line].Free();
-<a name="l00675"></a>00675       }
-<a name="l00676"></a>00676     }
-<a name="l00677"></a>00677   }
-<a name="l00678"></a>00678 
-<a name="l00679"></a>00679   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> y = line; y &gt; 0; --y)
-<a name="l00680"></a>00680   {
-<a name="l00681"></a>00681     <span class="keywordflow">for</span> (<span class="keywordtype">int</span> x = 0; x &lt; playfieldWidth; ++x)
-<a name="l00682"></a>00682     {
-<a name="l00683"></a>00683       <a class="code" href="class_player.html#ae78ce588bf6bcab5e7514530508458a1" title="the player game data">gameData</a>.playfield[x][y] = <a class="code" href="class_player.html#ae78ce588bf6bcab5e7514530508458a1" title="the player game data">gameData</a>.playfield[x][y-1];
-<a name="l00684"></a>00684     }
-<a name="l00685"></a>00685   }
-<a name="l00686"></a>00686 
-<a name="l00687"></a>00687   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> x = 0; x &lt; playfieldWidth; ++x)
-<a name="l00688"></a>00688   {
-<a name="l00689"></a>00689     <a class="code" href="class_player.html#ae78ce588bf6bcab5e7514530508458a1" title="the player game data">gameData</a>.playfield[x][0].pieceId = TETRISPIECE_ID_NONE;
-<a name="l00690"></a>00690     <a class="code" href="class_player.html#ae78ce588bf6bcab5e7514530508458a1" title="the player game data">gameData</a>.playfield[x][0].SetConnectivityInfo(NULL);
-<a name="l00691"></a>00691   }
-<a name="l00692"></a>00692 
-<a name="l00693"></a>00693   <a class="code" href="class_player.html#ae78ce588bf6bcab5e7514530508458a1" title="the player game data">gameData</a>.lines++;
-<a name="l00694"></a>00694   <a class="code" href="class_player.html#ae78ce588bf6bcab5e7514530508458a1" title="the player game data">gameData</a>.score++;
-<a name="l00695"></a>00695 
-<a name="l00696"></a>00696   <span class="keywordflow">if</span> (g_options-&gt;<a class="code" href="class_options.html#a0d25e532fe2a18548f7a6f1eba666f9e" title="the number of players">players</a> == 1)
-<a name="l00697"></a>00697   {
-<a name="l00698"></a>00698     <span class="keywordflow">if</span> (<a class="code" href="class_player.html#ae78ce588bf6bcab5e7514530508458a1" title="the player game data">gameData</a>.lines % 10 == 0)
-<a name="l00699"></a>00699       _IncreaseLevel();
-<a name="l00700"></a>00700 
-<a name="l00701"></a>00701     <span class="keywordflow">return</span>;
-<a name="l00702"></a>00702   }
-<a name="l00703"></a>00703 
-<a name="l00704"></a>00704   <span class="keywordtype">int</span> tmpMaxLines = isHandicapEnabled ? <a class="code" href="class_player.html#a94defab181bf4c90670930ea2413b937" title="the player profile">profile</a>.<a class="code" href="struct_profile.html#a424dc41e08eeee726b613744fc66c6ef" title="number of lines needed to win the game">maxLines</a> : g_options-&gt;<a class="code" href="class_options.html#ab04491857bd9ef886c3660db470715bb" title="the global player profile">profile</a>.<a class="code" href="struct_profile.html#a424dc41e08eeee726b613744fc66c6ef" title="number of lines needed to win the game">maxLines</a>;
-<a name="l00705"></a>00705 
-<a name="l00706"></a>00706   <span class="keywordflow">if</span> (tmpMaxLines &amp;&amp; <a class="code" href="class_player.html#ae78ce588bf6bcab5e7514530508458a1" title="the player game data">gameData</a>.lines == tmpMaxLines)
-<a name="l00707"></a>00707   {
-<a name="l00708"></a>00708     _DisplayWinner(<span class="keywordtype">id</span>);
-<a name="l00709"></a>00709     <span class="keywordflow">return</span>;
-<a name="l00710"></a>00710   }
-<a name="l00711"></a>00711 
-<a name="l00712"></a>00712   <span class="keywordtype">int</span> tmpAttackRate = isHandicapEnabled ? <a class="code" href="class_player.html#a94defab181bf4c90670930ea2413b937" title="the player profile">profile</a>.<a class="code" href="struct_profile.html#ac0a49f92fb25045a9d55a32984f296b3" title="attack opponents every time score is a multiple of attackRate">attackRate</a> : g_options-&gt;<a class="code" href="class_options.html#ab04491857bd9ef886c3660db470715bb" title="the global player profile">profile</a>.<a class="code" href="struct_profile.html#ac0a49f92fb25045a9d55a32984f296b3" title="attack opponents every time score is a multiple of attackRate">attackRate</a>;
-<a name="l00713"></a>00713 
-<a name="l00714"></a>00714   <span class="comment">// Attack opponents whenever score is a multiple of attack rate.</span>
-<a name="l00715"></a>00715   <span class="keywordflow">if</span> (tmpAttackRate &amp;&amp; <a class="code" href="class_player.html#ae78ce588bf6bcab5e7514530508458a1" title="the player game data">gameData</a>.score % tmpAttackRate == 0)
-<a name="l00716"></a>00716   {
-<a name="l00717"></a>00717     _IncreaseLevelAllBut(<span class="keywordtype">id</span>);
-<a name="l00718"></a>00718   }     
-<a name="l00719"></a>00719 }
+<a name="l00333"></a>00333     <span class="keywordtype">int</span> nblocks = (<a class="code" href="class_player.html#a32324e8fa2a68fb503a99914fe55f7ae" title="the currently falling tetris piece">currPiece</a>.GetPieceId() != TETRISPIECE_ID_JUNK) ? DEFAULT_BLOCKS_PER_PIECE : 8;
+<a name="l00334"></a>00334     <a class="code" href="struct_tetris_piece_connectivity_info.html" title="Connectivity information used for powerup pieces.">TetrisPieceConnectivityInfo</a> *info = (<a class="code" href="class_player.html#a32324e8fa2a68fb503a99914fe55f7ae" title="the currently falling tetris piece">currPiece</a>.GetPowerupId() == POWERUP_ID_NONE) ? 
+<a name="l00335"></a>00335       NULL : <span class="keyword">new</span> <a class="code" href="struct_tetris_piece_connectivity_info.html" title="Connectivity information used for powerup pieces.">TetrisPieceConnectivityInfo</a>(<a class="code" href="class_player.html#a32324e8fa2a68fb503a99914fe55f7ae" title="the currently falling tetris piece">currPiece</a>.GetPowerupId(), nblocks);
+<a name="l00336"></a>00336 
+<a name="l00337"></a>00337     <span class="keywordflow">for</span> (<span class="keywordtype">int</span> y = 0; y &lt; 4; ++y)
+<a name="l00338"></a>00338     {
+<a name="l00339"></a>00339       <span class="keywordflow">for</span> (<span class="keywordtype">int</span> x = 0; x &lt; 4; ++x)
+<a name="l00340"></a>00340       {
+<a name="l00341"></a>00341         <span class="comment">// The playfield is a playfield_width x playfield_height grid </span>
+<a name="l00342"></a>00342         <span class="comment">// (default: 10x20); the upper left corner corresponds to (0,0).</span>
+<a name="l00343"></a>00343         <span class="comment">// (piece.x, piece.y) is a playfield coordinate that corresponds to the </span>
+<a name="l00344"></a>00344         <span class="comment">// upper left corner of the tetris piece&#39;s 4x4 grid. Thus,</span>
+<a name="l00345"></a>00345         <span class="comment">// (calcx, calcy) gives the playfield coordinate for each of the </span>
+<a name="l00346"></a>00346         <span class="comment">// tetris piece&#39;s 4x4 grid elements.</span>
+<a name="l00347"></a>00347         <span class="keywordtype">int</span> calcx = <a class="code" href="class_player.html#a32324e8fa2a68fb503a99914fe55f7ae" title="the currently falling tetris piece">currPiece</a>.GetX() + x;
+<a name="l00348"></a>00348         <span class="keywordtype">int</span> calcy = <a class="code" href="class_player.html#a32324e8fa2a68fb503a99914fe55f7ae" title="the currently falling tetris piece">currPiece</a>.GetY() + y;
+<a name="l00349"></a>00349 
+<a name="l00350"></a>00350         <span class="comment">// Allow the screen to wrap horizontally.</span>
+<a name="l00351"></a>00351         <span class="keywordflow">if</span> (calcx &gt;= playfieldWidth)
+<a name="l00352"></a>00352           calcx -= playfieldWidth;
+<a name="l00353"></a>00353         <span class="keywordflow">else</span> <span class="keywordflow">if</span> (calcx &lt; 0)
+<a name="l00354"></a>00354           calcx += playfieldWidth;
+<a name="l00355"></a>00355 
+<a name="l00356"></a>00356         <span class="keywordflow">if</span> (calcx &gt;= 0 &amp;&amp; calcx &lt; playfieldWidth &amp;&amp; calcy &gt;= 0 
+<a name="l00357"></a>00357             &amp;&amp; calcy &lt; playfieldHeight &amp;&amp; desc.map[x][y])
+<a name="l00358"></a>00358         {
+<a name="l00359"></a>00359           <a class="code" href="class_player.html#ae78ce588bf6bcab5e7514530508458a1" title="the player game data">gameData</a>.playfield[calcx][calcy].pieceId = <a class="code" href="class_player.html#a32324e8fa2a68fb503a99914fe55f7ae" title="the currently falling tetris piece">currPiece</a>.GetPieceId();
+<a name="l00360"></a>00360           <a class="code" href="class_player.html#ae78ce588bf6bcab5e7514530508458a1" title="the player game data">gameData</a>.playfield[calcx][calcy].SetConnectivityInfo(info);
+<a name="l00361"></a>00361         }
+<a name="l00362"></a>00362       }
+<a name="l00363"></a>00363     }
+<a name="l00364"></a>00364   }
+<a name="l00365"></a>00365 
+<a name="l00366"></a>00366   <span class="comment">// Player can&#39;t move or place ==&gt; dead.</span>
+<a name="l00367"></a>00367   <span class="keywordflow">if</span> (!canMove &amp;&amp; !canplace)
+<a name="l00368"></a>00368   {
+<a name="l00369"></a>00369     <span class="keywordflow">if</span> (g_options-&gt;<a class="code" href="class_options.html#a0d25e532fe2a18548f7a6f1eba666f9e" title="the number of players">players</a> == 1)
+<a name="l00370"></a>00370     {
+<a name="l00371"></a>00371       <a class="code" href="class_player.html#ae78ce588bf6bcab5e7514530508458a1" title="the player game data">gameData</a>.isDead = <span class="keyword">true</span>;
+<a name="l00372"></a>00372       <a class="code" href="tcyc__menu_8h.html#a2780010a7fa16d3d236a8d9a7ca4a62f" title="Pause the game.">TCYC_MenuPause</a>(<span class="stringliteral">&quot;Game Over&quot;</span>);
+<a name="l00373"></a>00373       <span class="keywordflow">return</span>;
+<a name="l00374"></a>00374     }
+<a name="l00375"></a>00375 
+<a name="l00376"></a>00376     <a class="code" href="class_player.html#ae78ce588bf6bcab5e7514530508458a1" title="the player game data">gameData</a>.isDead = <span class="keyword">true</span>;
+<a name="l00377"></a>00377     _GetWinner();
+<a name="l00378"></a>00378     <span class="keywordflow">return</span>;
+<a name="l00379"></a>00379   }
+<a name="l00380"></a>00380 
+<a name="l00381"></a>00381   <span class="comment">// Can&#39;t move, make a new block.</span>
+<a name="l00382"></a>00382   <span class="keywordflow">if</span> (!canMove) 
+<a name="l00383"></a>00383   {
+<a name="l00384"></a>00384     <span class="keywordtype">int</span> linesInFrame = 0;
+<a name="l00385"></a>00385     
+<a name="l00386"></a>00386     <span class="keywordflow">while</span> (_RemoveLines())
+<a name="l00387"></a>00387       ++linesInFrame;
+<a name="l00388"></a>00388 
+<a name="l00389"></a>00389     <span class="keywordflow">if</span> (linesInFrame == 3)
+<a name="l00390"></a>00390     {
+<a name="l00391"></a>00391       <a class="code" href="class_player.html#ae78ce588bf6bcab5e7514530508458a1" title="the player game data">gameData</a>.score++; <span class="comment">// add one bonus point if you cleared 3 lines</span>
+<a name="l00392"></a>00392     }
+<a name="l00393"></a>00393     <span class="keywordflow">else</span> <span class="keywordflow">if</span> (linesInFrame == 4)
+<a name="l00394"></a>00394     {
+<a name="l00395"></a>00395       <a class="code" href="class_player.html#ae78ce588bf6bcab5e7514530508458a1" title="the player game data">gameData</a>.score += 2;          <span class="comment">// add two bonus points if you get a tetris</span>
+<a name="l00396"></a>00396       MODPlay_Pause(&amp;<a class="code" href="globals_8cpp.html#aaa578ed87b2e7cac5a285e425f2165ad" title="used for playing the game music">g_modPlay</a>, 1); <span class="comment">// pause music</span>
+<a name="l00397"></a>00397       g_tetrisCheerSound-&gt;Play();   <span class="comment">// Yay you got a tetris!</span>
+<a name="l00398"></a>00398     }
+<a name="l00399"></a>00399 
+<a name="l00400"></a>00400     _SpawnNextPiece();
+<a name="l00401"></a>00401   }
+<a name="l00402"></a>00402 
+<a name="l00403"></a>00403 <span class="comment">//#ifndef EMU</span>
+<a name="l00404"></a>00404 <span class="comment">//  if (g_options-&gt;netplay == 1 &amp;&amp; plyrIdx == 0)</span>
+<a name="l00405"></a>00405 <span class="comment">//    GC_BBA_SendUDPE(9003, (unsigned char*)map[0], 200);</span>
+<a name="l00406"></a>00406 <span class="comment">//#endif</span>
+<a name="l00407"></a>00407 }
+<a name="l00408"></a>00408 
+<a name="l00409"></a>00409 <span class="comment">// Draw each tetris piece block as a cube.</span>
+<a name="l00410"></a><a class="code" href="class_player.html#a874ac3ef1bf9a95ad608c13cf73c74a7">00410</a> <span class="keywordtype">void</span> <a class="code" href="class_player.html#a874ac3ef1bf9a95ad608c13cf73c74a7" title="Draw each tetris piece block as a cube.">Player::DrawBlockAsCube</a>(<span class="keywordtype">float</span> x, <span class="keywordtype">float</span> y, <a class="code" href="_color_8h.html#ac0dddfeb58e0f6855f22796d240b070d" title="Enumerates all the color types.">ColorId</a> colorIdx, u8 alpha, GuiImageData *imgData, <span class="keywordtype">bool</span> isGuideDot)
+<a name="l00411"></a>00411 {
+<a name="l00412"></a>00412   <span class="keywordtype">float</span> scale = _GetScale() / (float)DEFAULT_PLAYFIELD_SCALE;
+<a name="l00413"></a>00413   <span class="keywordflow">if</span> (<a class="code" href="globals_8cpp.html#a636721efce9e6bebd8e60d4c6e596778" title="classic mode">g_isClassicMode</a>)
+<a name="l00414"></a>00414     scale -= 0.1;
+<a name="l00415"></a>00415 
+<a name="l00416"></a>00416   <span class="keywordtype">float</span> vx = 0;
+<a name="l00417"></a>00417 
+<a name="l00418"></a>00418   <span class="keywordflow">if</span> (g_options-&gt;<a class="code" href="class_options.html#a0d25e532fe2a18548f7a6f1eba666f9e" title="the number of players">players</a> == 1 &amp;&amp; !g_options-&gt;isNetplay)
+<a name="l00419"></a>00419   {
+<a name="l00420"></a>00420     
+<a name="l00421"></a>00421   }
+<a name="l00422"></a>00422   <span class="keywordflow">else</span> <span class="keywordflow">if</span> (g_options-&gt;<a class="code" href="class_options.html#a0d25e532fe2a18548f7a6f1eba666f9e" title="the number of players">players</a> == 2)
+<a name="l00423"></a>00423   {
+<a name="l00424"></a>00424     <span class="keywordflow">if</span> (<span class="keywordtype">id</span> == 0)
+<a name="l00425"></a>00425       vx = -106.6;
+<a name="l00426"></a>00426     <span class="keywordflow">else</span>
+<a name="l00427"></a>00427       vx = 213.4;
+<a name="l00428"></a>00428   }
+<a name="l00429"></a>00429   <span class="keywordflow">else</span> <span class="keywordflow">if</span> (g_options-&gt;<a class="code" href="class_options.html#a0d25e532fe2a18548f7a6f1eba666f9e" title="the number of players">players</a> == 3)
+<a name="l00430"></a>00430   {
+<a name="l00431"></a>00431     <span class="keywordflow">if</span> (<span class="keywordtype">id</span> == 0)
+<a name="l00432"></a>00432       vx = -210;
+<a name="l00433"></a>00433     <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<span class="keywordtype">id</span> == 2)
+<a name="l00434"></a>00434       vx = 210;
+<a name="l00435"></a>00435   }
+<a name="l00436"></a>00436   <span class="keywordflow">else</span> <span class="keywordflow">if</span> (g_options-&gt;<a class="code" href="class_options.html#a0d25e532fe2a18548f7a6f1eba666f9e" title="the number of players">players</a> == 4)
+<a name="l00437"></a>00437   {
+<a name="l00438"></a>00438     <span class="keywordflow">if</span> (<span class="keywordtype">id</span> == 0)
+<a name="l00439"></a>00439       vx = -240;
+<a name="l00440"></a>00440     <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<span class="keywordtype">id</span> == 1)
+<a name="l00441"></a>00441       vx = -80;
+<a name="l00442"></a>00442     <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<span class="keywordtype">id</span> == 2)
+<a name="l00443"></a>00443       vx = 80;
+<a name="l00444"></a>00444     <span class="keywordflow">else</span>
+<a name="l00445"></a>00445       vx = 240;
+<a name="l00446"></a>00446   }
+<a name="l00447"></a>00447 
+<a name="l00448"></a>00448   GX_SetViewport(vx + playfieldDX, playfieldDY, <a class="code" href="main_8cpp.html#a882bccb3f0627316d16f6e50ab79893b" title="the video mode">g_vmode</a>-&gt;fbWidth, <a class="code" href="main_8cpp.html#a882bccb3f0627316d16f6e50ab79893b" title="the video mode">g_vmode</a>-&gt;efbHeight, 0, 1);
+<a name="l00449"></a>00449 
+<a name="l00450"></a>00450   <span class="comment">// x should be a value in {0,...,playfield_width - 1}</span>
+<a name="l00451"></a>00451   <span class="comment">// y should be a value in {0,...,playfield_height - 1}</span>
+<a name="l00452"></a>00452   
+<a name="l00453"></a>00453   <span class="comment">// Calculate the offset from the center of the playfield.</span>
+<a name="l00454"></a>00454   <span class="keywordtype">int</span> centerRight = playfieldWidth &gt;&gt; 1; <span class="comment">// playfield_width / 2</span>
+<a name="l00455"></a>00455   <span class="keywordtype">int</span> centerLeft  = centerRight - 1;
+<a name="l00456"></a>00456   <span class="keywordtype">int</span> offsetFromCenter = (x &gt; centerLeft) ? x - centerLeft : x - centerRight;
+<a name="l00457"></a>00457 
+<a name="l00458"></a>00458   <span class="comment">// Convert y to an offset from the bottom, and scale it.</span>
+<a name="l00459"></a>00459   y = ((playfieldHeight &gt;&gt; 1) - 1 - y) * scale; <span class="comment">// (playfield_height / 2) - 1</span>
+<a name="l00460"></a>00460 
+<a name="l00461"></a>00461   <span class="comment">// The half-cube z-translation.</span>
+<a name="l00462"></a>00462   <span class="keywordtype">float</span> hz = scale / 2;
+<a name="l00463"></a>00463 
+<a name="l00464"></a>00464   <span class="comment">// TRS ==&gt; Scale should be multiplied last.</span>
+<a name="l00465"></a>00465   <span class="keyword">static</span> Mtx mscale;
+<a name="l00466"></a>00466   guMtxIdentity(mscale);
+<a name="l00467"></a>00467   <span class="keywordflow">if</span> (!isGuideDot)
+<a name="l00468"></a>00468   {
+<a name="l00469"></a>00469     guMtxScale(mscale, scale, scale, scale);
+<a name="l00470"></a>00470   }
+<a name="l00471"></a>00471   <span class="keywordflow">else</span>
+<a name="l00472"></a>00472   {
+<a name="l00473"></a>00473     <span class="keywordtype">float</span> dotScale = scale * 0.35;
+<a name="l00474"></a>00474     guMtxScale(mscale, dotScale, dotScale, dotScale);
+<a name="l00475"></a>00475   }
+<a name="l00476"></a>00476   
+<a name="l00477"></a>00477   <span class="comment">// The angle between cubes in degrees.</span>
+<a name="l00478"></a>00478   <span class="keywordtype">float</span> cubeRotation = !<a class="code" href="globals_8cpp.html#a636721efce9e6bebd8e60d4c6e596778" title="classic mode">g_isClassicMode</a> ? cubeAngle : 0;
+<a name="l00479"></a>00479 
+<a name="l00480"></a>00480   <span class="keywordflow">if</span> (offsetFromCenter &lt; 0)
+<a name="l00481"></a>00481   {
+<a name="l00482"></a>00482     scale *= -1;
+<a name="l00483"></a>00483     cubeRotation *= -1;
+<a name="l00484"></a>00484     offsetFromCenter *= -1;
+<a name="l00485"></a>00485   }
+<a name="l00486"></a>00486   
+<a name="l00487"></a>00487   <span class="comment">// The cube translation matrix.</span>
+<a name="l00488"></a>00488   <span class="comment">// Translate the cube along the x-axis by its length.</span>
+<a name="l00489"></a>00489   <span class="keyword">static</span> Mtx mtrans;
+<a name="l00490"></a>00490   guMtxIdentity(mtrans);
+<a name="l00491"></a>00491   guMtxTransApply(mtrans, mtrans, scale, 0.f, 0.f); <span class="comment">// src, dst, x, y, z</span>
+<a name="l00492"></a>00492 
+<a name="l00493"></a>00493   <span class="comment">// The cube rotation matrix.</span>
+<a name="l00494"></a>00494   <span class="comment">// Rotate the cube about the y-axis by cubeRotation degrees.</span>
+<a name="l00495"></a>00495   <span class="keyword">static</span> guVector cubeAxis = {0, 1, 0}; <span class="comment">// y-axis</span>
+<a name="l00496"></a>00496   <span class="keyword">static</span> Mtx mrot;
+<a name="l00497"></a>00497   guMtxIdentity(mrot);
+<a name="l00498"></a>00498   guMtxRotAxisDeg(mrot, &amp;cubeAxis, cubeRotation);
+<a name="l00499"></a>00499 
+<a name="l00500"></a>00500   <span class="keyword">static</span> Mtx mrottrans;
+<a name="l00501"></a>00501   guMtxIdentity(mrottrans);
+<a name="l00502"></a>00502   guMtxConcat(mrot, mtrans, mrottrans);
+<a name="l00503"></a>00503 
+<a name="l00504"></a>00504   <span class="keyword">static</span> Mtx model;
+<a name="l00505"></a>00505   <span class="keyword">static</span> Mtx modelview;
+<a name="l00506"></a>00506 
+<a name="l00507"></a>00507   guMtxIdentity(model);
+<a name="l00508"></a>00508 
+<a name="l00509"></a>00509   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; offsetFromCenter - 1; ++i)
+<a name="l00510"></a>00510   {
+<a name="l00511"></a>00511     guMtxConcat(model, mrottrans, model);
+<a name="l00512"></a>00512   }
+<a name="l00513"></a>00513 
+<a name="l00514"></a>00514   guMtxConcat(model, mrot, model);
+<a name="l00515"></a>00515 
+<a name="l00516"></a>00516   <span class="comment">// This halfcubetrans is applied before all other translations and rotations.</span>
+<a name="l00517"></a>00517   <span class="keyword">static</span> Mtx halfcubetrans;
+<a name="l00518"></a>00518   guMtxIdentity(halfcubetrans);
+<a name="l00519"></a>00519   guMtxTransApply(halfcubetrans, halfcubetrans, scale / 2, 0.f, -hz);
+<a name="l00520"></a>00520 
+<a name="l00521"></a>00521   guMtxConcat(model, halfcubetrans, model);
+<a name="l00522"></a>00522   guMtxConcat(model, mscale, model);
+<a name="l00523"></a>00523   
+<a name="l00524"></a>00524   <span class="comment">// Translate the cube to the correct y and z position.</span>
+<a name="l00525"></a>00525   <span class="keyword">static</span> Mtx trans;
+<a name="l00526"></a>00526   guMtxIdentity(trans);
+<a name="l00527"></a>00527   guMtxTransApply(trans, trans, 0, y, -32); <span class="comment">// src, dst, x, y, z</span>
+<a name="l00528"></a>00528   
+<a name="l00529"></a>00529   guMtxConcat(trans, model, model);
+<a name="l00530"></a>00530   guMtxConcat(<a class="code" href="globals_8cpp.html#a58d8befc3355f9d0dffa6944e8d550fa" title="the global view matrix">g_view</a>, model, modelview);
+<a name="l00531"></a>00531 
+<a name="l00532"></a>00532   <span class="comment">// load the modelview matrix into matrix memory</span>
+<a name="l00533"></a>00533   GX_LoadPosMtxImm(modelview, GX_PNMTX0);
+<a name="l00534"></a>00534   <a class="code" href="main_8h.html#a3532d690da80d97b13e712c539f229b7" title="Draws a unit cube centered at the origin.">GX_Cube</a>(colorIdx, alpha, imgData);
+<a name="l00535"></a>00535   GX_SetViewport(0, 0, <a class="code" href="main_8cpp.html#a882bccb3f0627316d16f6e50ab79893b" title="the video mode">g_vmode</a>-&gt;fbWidth, <a class="code" href="main_8cpp.html#a882bccb3f0627316d16f6e50ab79893b" title="the video mode">g_vmode</a>-&gt;efbHeight, 0, 1);
+<a name="l00536"></a>00536 }
+<a name="l00537"></a>00537 
+<a name="l00538"></a>00538 <span class="comment">//--- PRIVATE ---</span>
+<a name="l00539"></a>00539 
+<a name="l00540"></a>00540 <span class="keywordtype">void</span> Player::_GetWinner()
+<a name="l00541"></a>00541 {
+<a name="l00542"></a>00542   <span class="keywordtype">int</span> ndead = 0;
+<a name="l00543"></a>00543   <span class="keywordtype">int</span> winner = 0;
+<a name="l00544"></a>00544 
+<a name="l00545"></a>00545   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; g_options-&gt;<a class="code" href="class_options.html#a0d25e532fe2a18548f7a6f1eba666f9e" title="the number of players">players</a>; ++i)
+<a name="l00546"></a>00546   {
+<a name="l00547"></a>00547     <span class="keywordflow">if</span> (g_players[i].<a class="code" href="class_player.html#ae78ce588bf6bcab5e7514530508458a1" title="the player game data">gameData</a>.isDead)
+<a name="l00548"></a>00548       ++ndead;
+<a name="l00549"></a>00549     <span class="keywordflow">else</span>
+<a name="l00550"></a>00550       winner = i;
+<a name="l00551"></a>00551   }
+<a name="l00552"></a>00552 
+<a name="l00553"></a>00553   <span class="keywordflow">if</span> (ndead == g_options-&gt;<a class="code" href="class_options.html#a0d25e532fe2a18548f7a6f1eba666f9e" title="the number of players">players</a> - 1)
+<a name="l00554"></a>00554     _DisplayWinner(winner);
+<a name="l00555"></a>00555 }
+<a name="l00556"></a>00556 
+<a name="l00557"></a>00557 <span class="keywordtype">void</span> Player::_DisplayWinner(<span class="keywordtype">int</span> winner)
+<a name="l00558"></a>00558 {
+<a name="l00559"></a>00559   <span class="keywordtype">char</span> buf[15];
+<a name="l00560"></a>00560   sprintf(buf, <span class="stringliteral">&quot;Player %d wins!&quot;</span>, winner + 1);
+<a name="l00561"></a>00561   <a class="code" href="tcyc__menu_8h.html#a2780010a7fa16d3d236a8d9a7ca4a62f" title="Pause the game.">TCYC_MenuPause</a>(buf);
+<a name="l00562"></a>00562 }
+<a name="l00563"></a>00563 
+<a name="l00564"></a>00564 <span class="keywordtype">void</span> Player::_IncreaseLevelAllBut(<span class="keywordtype">int</span> plyrIdx)
+<a name="l00565"></a>00565 {
+<a name="l00566"></a>00566   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; g_options-&gt;<a class="code" href="class_options.html#a0d25e532fe2a18548f7a6f1eba666f9e" title="the number of players">players</a>; ++i)
+<a name="l00567"></a>00567   {
+<a name="l00568"></a>00568     <span class="keywordflow">if</span> (i != plyrIdx)
+<a name="l00569"></a>00569       g_players[i]._IncreaseLevel();
+<a name="l00570"></a>00570   }
+<a name="l00571"></a>00571 }
+<a name="l00572"></a>00572 <span class="comment"></span>
+<a name="l00573"></a>00573 <span class="comment">/** If no piece is specified then the player&#39;s current piece is used. */</span>
+<a name="l00574"></a>00574 <span class="keywordtype">bool</span> Player::_CanPlacePiece(<a class="code" href="class_tetris_piece.html" title="A tetris piece.">TetrisPiece</a> *cp)
+<a name="l00575"></a>00575 {
+<a name="l00576"></a>00576   <a class="code" href="class_tetris_piece.html" title="A tetris piece.">TetrisPiece</a> &amp;piece = !cp ? <a class="code" href="class_player.html#a32324e8fa2a68fb503a99914fe55f7ae" title="the currently falling tetris piece">currPiece</a> : *cp;
+<a name="l00577"></a>00577   <span class="keyword">const</span> <a class="code" href="struct_tetris_piece_desc.html" title="Every piece fits into a 4x4 grid.">TetrisPieceDesc</a> &amp;desc = piece.GetPieceDescription();
+<a name="l00578"></a>00578 
+<a name="l00579"></a>00579   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> y = 0; y &lt; 4; y++)
+<a name="l00580"></a>00580   {
+<a name="l00581"></a>00581     <span class="keywordflow">for</span> (<span class="keywordtype">int</span> x = 0; x &lt; 4; x++)
+<a name="l00582"></a>00582     {
+<a name="l00583"></a>00583       <span class="comment">// Only check squares that are set in the map</span>
+<a name="l00584"></a>00584       <span class="keywordflow">if</span> (desc.map[x][y])
+<a name="l00585"></a>00585       {
+<a name="l00586"></a>00586         <span class="comment">// The playfield is a playfield_width x playfield_height grid </span>
+<a name="l00587"></a>00587         <span class="comment">// (default: 10x20); the upper left corner corresponds to (0,0).</span>
+<a name="l00588"></a>00588         <span class="comment">// (piece.x, piece.y) is a playfield coordinate that corresponds to the </span>
+<a name="l00589"></a>00589         <span class="comment">// upper left corner of the tetris piece&#39;s 4x4 grid. Thus,</span>
+<a name="l00590"></a>00590         <span class="comment">// (calcx, calcy) gives the playfield coordinate for each of the </span>
+<a name="l00591"></a>00591         <span class="comment">// tetris piece&#39;s 4x4 grid elements.</span>
+<a name="l00592"></a>00592         <span class="keywordtype">int</span> calcx = piece.GetX() + x;
+<a name="l00593"></a>00593         <span class="keywordtype">int</span> calcy = piece.GetY() + y;
+<a name="l00594"></a>00594 
+<a name="l00595"></a>00595         <span class="comment">// Outside the map?</span>
+<a name="l00596"></a>00596         <span class="comment">// Allow the screen to wrap horizontally.</span>
+<a name="l00597"></a>00597         
+<a name="l00598"></a>00598         <span class="keywordflow">if</span> (calcx &gt;= playfieldWidth)
+<a name="l00599"></a>00599         {
+<a name="l00600"></a>00600           <span class="keywordflow">if</span> (!<a class="code" href="globals_8cpp.html#a636721efce9e6bebd8e60d4c6e596778" title="classic mode">g_isClassicMode</a>)
+<a name="l00601"></a>00601             calcx -= playfieldWidth;
+<a name="l00602"></a>00602           <span class="keywordflow">else</span>
+<a name="l00603"></a>00603             <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00604"></a>00604         }
+<a name="l00605"></a>00605         <span class="keywordflow">else</span> <span class="keywordflow">if</span> (calcx &lt; 0)
+<a name="l00606"></a>00606         {
+<a name="l00607"></a>00607           <span class="keywordflow">if</span> (!<a class="code" href="globals_8cpp.html#a636721efce9e6bebd8e60d4c6e596778" title="classic mode">g_isClassicMode</a>)
+<a name="l00608"></a>00608             calcx += playfieldWidth;
+<a name="l00609"></a>00609           <span class="keywordflow">else</span>
+<a name="l00610"></a>00610             <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00611"></a>00611         }
+<a name="l00612"></a>00612 
+<a name="l00613"></a>00613         <span class="keywordflow">if</span> (calcy &gt;= playfieldHeight)
+<a name="l00614"></a>00614           <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00615"></a>00615 
+<a name="l00616"></a>00616         <span class="comment">// On top of something else?</span>
+<a name="l00617"></a>00617         <span class="keywordflow">if</span> (calcy &gt;= 0 
+<a name="l00618"></a>00618             &amp;&amp; <a class="code" href="class_player.html#ae78ce588bf6bcab5e7514530508458a1" title="the player game data">gameData</a>.playfield[calcx][calcy].pieceId != TETRISPIECE_ID_NONE)
+<a name="l00619"></a>00619           <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00620"></a>00620       }
+<a name="l00621"></a>00621     }
+<a name="l00622"></a>00622   }
+<a name="l00623"></a>00623 
+<a name="l00624"></a>00624   <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00625"></a>00625 }
+<a name="l00626"></a>00626 
+<a name="l00627"></a>00627 <span class="comment">// Removes all the completed lines.</span>
+<a name="l00628"></a>00628 <span class="keywordtype">bool</span> Player::_RemoveLines()
+<a name="l00629"></a>00629 {
+<a name="l00630"></a>00630   <span class="keywordtype">int</span> blocksInLine = 0;
+<a name="l00631"></a>00631 
+<a name="l00632"></a>00632   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> y = 0; y &lt; playfieldHeight; ++y)
+<a name="l00633"></a>00633   {
+<a name="l00634"></a>00634     <span class="keywordflow">for</span> (<span class="keywordtype">int</span> x = 0; x &lt; playfieldWidth; ++x)
+<a name="l00635"></a>00635     {
+<a name="l00636"></a>00636       <span class="keywordflow">if</span> (<a class="code" href="class_player.html#ae78ce588bf6bcab5e7514530508458a1" title="the player game data">gameData</a>.playfield[x][y].pieceId != TETRISPIECE_ID_NONE)
+<a name="l00637"></a>00637         ++blocksInLine;
+<a name="l00638"></a>00638     }
+<a name="l00639"></a>00639 
+<a name="l00640"></a>00640     <span class="keywordflow">if</span> (blocksInLine == playfieldWidth)
+<a name="l00641"></a>00641     {
+<a name="l00642"></a>00642       _RemoveLine(y);
+<a name="l00643"></a>00643       <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00644"></a>00644     }
+<a name="l00645"></a>00645 
+<a name="l00646"></a>00646     blocksInLine = 0;
+<a name="l00647"></a>00647   }
+<a name="l00648"></a>00648 
+<a name="l00649"></a>00649   <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00650"></a>00650 }
+<a name="l00651"></a>00651 
+<a name="l00652"></a>00652 <span class="comment">// Removes the line at the given row.</span>
+<a name="l00653"></a>00653 <span class="keywordtype">void</span> Player::_RemoveLine(<span class="keywordtype">int</span> line)
+<a name="l00654"></a>00654 {
+<a name="l00655"></a>00655   <a class="code" href="struct_tetris_piece_connectivity_info.html" title="Connectivity information used for powerup pieces.">TetrisPieceConnectivityInfo</a> *connectivityInfo = NULL;
+<a name="l00656"></a>00656 
+<a name="l00657"></a>00657   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> x = 0; x &lt; playfieldWidth; ++x)
+<a name="l00658"></a>00658   {
+<a name="l00659"></a>00659     <span class="comment">// If a block has connectivity info then it belongs to a powerup piece.</span>
+<a name="l00660"></a>00660     connectivityInfo = <a class="code" href="class_player.html#ae78ce588bf6bcab5e7514530508458a1" title="the player game data">gameData</a>.playfield[x][line].connectivityInfo;
+<a name="l00661"></a>00661     <span class="keywordflow">if</span> (connectivityInfo)
+<a name="l00662"></a>00662     {
+<a name="l00663"></a>00663       connectivityInfo-&gt;counter--;
+<a name="l00664"></a>00664 
+<a name="l00665"></a>00665       <span class="keywordflow">if</span> (connectivityInfo-&gt;counter == 0)
+<a name="l00666"></a>00666       {
+<a name="l00667"></a>00667         <span class="comment">// Add powerup to powerup queue.</span>
+<a name="l00668"></a>00668         <span class="keywordtype">int</span> slot = <a class="code" href="class_player.html#ab4f99fa1ebee60a16c20bb93cb98f3ad" title="Get an open slot for storing an acquired powerup.">GetPowerupQueueSlot</a>();
+<a name="l00669"></a>00669         <span class="keywordflow">if</span> (slot &gt;= 0)
+<a name="l00670"></a>00670         {
+<a name="l00671"></a>00671           <a class="code" href="class_powerup.html" title="The base class for powerups.">Powerup</a> *powerup = <a class="code" href="class_powerup_utils.html#aaaca4cb932737eb02416cd4c82de7a65" title="Returns a static Powerup instance.">PowerupUtils::GetStaticInstance</a>(connectivityInfo-&gt;powerupId);
+<a name="l00672"></a>00672           <a class="code" href="class_player.html#a22d011f416acc5834c5d6ad99f170e4a" title="Adds the acquired powerup to the powerup queue.">QueuePowerup</a>(powerup, slot);
+<a name="l00673"></a>00673         }
+<a name="l00674"></a>00674 
+<a name="l00675"></a>00675         <a class="code" href="class_player.html#ae78ce588bf6bcab5e7514530508458a1" title="the player game data">gameData</a>.playfield[x][line].Free();
+<a name="l00676"></a>00676       }
+<a name="l00677"></a>00677     }
+<a name="l00678"></a>00678   }
+<a name="l00679"></a>00679 
+<a name="l00680"></a>00680   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> y = line; y &gt; 0; --y)
+<a name="l00681"></a>00681   {
+<a name="l00682"></a>00682     <span class="keywordflow">for</span> (<span class="keywordtype">int</span> x = 0; x &lt; playfieldWidth; ++x)
+<a name="l00683"></a>00683     {
+<a name="l00684"></a>00684       <a class="code" href="class_player.html#ae78ce588bf6bcab5e7514530508458a1" title="the player game data">gameData</a>.playfield[x][y] = <a class="code" href="class_player.html#ae78ce588bf6bcab5e7514530508458a1" title="the player game data">gameData</a>.playfield[x][y-1];
+<a name="l00685"></a>00685     }
+<a name="l00686"></a>00686   }
+<a name="l00687"></a>00687 
+<a name="l00688"></a>00688   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> x = 0; x &lt; playfieldWidth; ++x)
+<a name="l00689"></a>00689   {
+<a name="l00690"></a>00690     <a class="code" href="class_player.html#ae78ce588bf6bcab5e7514530508458a1" title="the player game data">gameData</a>.playfield[x][0].pieceId = TETRISPIECE_ID_NONE;
+<a name="l00691"></a>00691     <a class="code" href="class_player.html#ae78ce588bf6bcab5e7514530508458a1" title="the player game data">gameData</a>.playfield[x][0].SetConnectivityInfo(NULL);
+<a name="l00692"></a>00692   }
+<a name="l00693"></a>00693 
+<a name="l00694"></a>00694   <a class="code" href="class_player.html#ae78ce588bf6bcab5e7514530508458a1" title="the player game data">gameData</a>.lines++;
+<a name="l00695"></a>00695   <a class="code" href="class_player.html#ae78ce588bf6bcab5e7514530508458a1" title="the player game data">gameData</a>.score++;
+<a name="l00696"></a>00696 
+<a name="l00697"></a>00697   <span class="keywordflow">if</span> (g_options-&gt;<a class="code" href="class_options.html#a0d25e532fe2a18548f7a6f1eba666f9e" title="the number of players">players</a> == 1)
+<a name="l00698"></a>00698   {
+<a name="l00699"></a>00699     <span class="keywordflow">if</span> (<a class="code" href="class_player.html#ae78ce588bf6bcab5e7514530508458a1" title="the player game data">gameData</a>.lines % 10 == 0)
+<a name="l00700"></a>00700       _IncreaseLevel();
+<a name="l00701"></a>00701 
+<a name="l00702"></a>00702     <span class="keywordflow">return</span>;
+<a name="l00703"></a>00703   }
+<a name="l00704"></a>00704 
+<a name="l00705"></a>00705   <span class="keywordtype">int</span> tmpMaxLines = isHandicapEnabled ? <a class="code" href="class_player.html#a94defab181bf4c90670930ea2413b937" title="the player profile">profile</a>.<a class="code" href="struct_profile.html#a424dc41e08eeee726b613744fc66c6ef" title="number of lines needed to win the game">maxLines</a> : g_options-&gt;<a class="code" href="class_options.html#ab04491857bd9ef886c3660db470715bb" title="the global player profile">profile</a>.<a class="code" href="struct_profile.html#a424dc41e08eeee726b613744fc66c6ef" title="number of lines needed to win the game">maxLines</a>;
+<a name="l00706"></a>00706 
+<a name="l00707"></a>00707   <span class="keywordflow">if</span> (tmpMaxLines &amp;&amp; <a class="code" href="class_player.html#ae78ce588bf6bcab5e7514530508458a1" title="the player game data">gameData</a>.lines == tmpMaxLines)
+<a name="l00708"></a>00708   {
+<a name="l00709"></a>00709     _DisplayWinner(<span class="keywordtype">id</span>);
+<a name="l00710"></a>00710     <span class="keywordflow">return</span>;
+<a name="l00711"></a>00711   }
+<a name="l00712"></a>00712 
+<a name="l00713"></a>00713   <span class="keywordtype">int</span> tmpAttackRate = isHandicapEnabled ? <a class="code" href="class_player.html#a94defab181bf4c90670930ea2413b937" title="the player profile">profile</a>.<a class="code" href="struct_profile.html#ac0a49f92fb25045a9d55a32984f296b3" title="attack opponents every time score is a multiple of attackRate">attackRate</a> : g_options-&gt;<a class="code" href="class_options.html#ab04491857bd9ef886c3660db470715bb" title="the global player profile">profile</a>.<a class="code" href="struct_profile.html#ac0a49f92fb25045a9d55a32984f296b3" title="attack opponents every time score is a multiple of attackRate">attackRate</a>;
+<a name="l00714"></a>00714 
+<a name="l00715"></a>00715   <span class="comment">// Attack opponents whenever score is a multiple of attack rate.</span>
+<a name="l00716"></a>00716   <span class="keywordflow">if</span> (tmpAttackRate &amp;&amp; <a class="code" href="class_player.html#ae78ce588bf6bcab5e7514530508458a1" title="the player game data">gameData</a>.score % tmpAttackRate == 0)
+<a name="l00717"></a>00717   {
+<a name="l00718"></a>00718     _IncreaseLevelAllBut(<span class="keywordtype">id</span>);
+<a name="l00719"></a>00719   }     
+<a name="l00720"></a>00720 }
 </pre></div></div>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Tue Oct 19 2010 03:28:46 for TetriCycle by&nbsp;
+<hr class="footer"/><address class="footer"><small>Generated on Wed Oct 20 2010 17:06:58 for TetriCycle by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.1 </small></address>
 </body>
