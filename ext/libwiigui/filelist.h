@@ -128,6 +128,18 @@ extern const u32	tetris_love_png_size;
 extern const u8		tetris_heart_pink_png[];
 extern const u32	tetris_heart_pink_png_size;
 
+extern const u8		up_arrow_png[];
+extern const u32	up_arrow_png_size;
+
+extern const u8		up_arrow_over_png[];
+extern const u32	up_arrow_over_png_size;
+
+extern const u8		down_arrow_png[];
+extern const u32	down_arrow_png_size;
+
+extern const u8		down_arrow_over_png[];
+extern const u32	down_arrow_over_png_size;
+
 extern const u8		tetricycle_by_dj_dimz_ogg[];
 extern const u32	tetricycle_by_dj_dimz_ogg_size;
 
@@ -148,14 +160,23 @@ extern const u32	powerup_invalid_target_pcm_size;
 extern const u8   powerup_bighand_png[];
 extern const u32  powerup_bighand_png_size;
 
+extern const u8   powerup_junkpiece_png[];
+extern const u32  powerup_junkpiece_png_size;
+
 extern const u8   powerup_linepiece_png[];
 extern const u32  powerup_linepiece_png_size;
+
+extern const u8   powerup_mirror_png[];
+extern const u32  powerup_mirror_png_size;
 
 extern const u8   powerup_reverse_png[];
 extern const u32  powerup_reverse_png_size;
 
 extern const u8   powerup_shrinkray_png[];
 extern const u32  powerup_shrinkray_png_size;
+
+extern const u8   powerup_speedup_png[];
+extern const u32  powerup_speedup_png_size;
 
 // powerup sound declarations go here
 

@@ -45,7 +45,9 @@ enum TetrisPieceId
   TETRISPIECE_ID_L, ///< L piece
   TETRISPIECE_ID_J, ///< reverse-L piece
   TETRISPIECE_ID_T, ///< T piece
-  TETRISPIECE_ID_MAX = 7
+  TETRISPIECE_ID_JUNK, ///< junk piece (3x3 square with hollow center)
+  TETRISPIECE_ID_MAX,
+  TETRISPIECE_ID_RAND_MAX = 7
 };
 
 /// Every piece fits into a 4x4 grid.
@@ -89,7 +91,7 @@ public:
 
   static TetrisPieceId GetNextId()
   {
-    return (TetrisPieceId)(int)(genrand() * TETRISPIECE_ID_MAX);
+    return (TetrisPieceId)(int)(genrand() * TETRISPIECE_ID_RAND_MAX);
   }
 
 private:

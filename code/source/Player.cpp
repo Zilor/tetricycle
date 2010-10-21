@@ -330,8 +330,9 @@ void Player::DoMovement()
   // Write piece to map if it can't be moved more.
   if (!canMove)
   {
+    int nblocks = (currPiece.GetPieceId() != TETRISPIECE_ID_JUNK) ? DEFAULT_BLOCKS_PER_PIECE : 8;
     TetrisPieceConnectivityInfo *info = (currPiece.GetPowerupId() == POWERUP_ID_NONE) ? 
-      NULL : new TetrisPieceConnectivityInfo(currPiece.GetPowerupId());
+      NULL : new TetrisPieceConnectivityInfo(currPiece.GetPowerupId(), nblocks);
 
     for (int y = 0; y < 4; ++y)
     {

@@ -65,6 +65,9 @@
     <ClCompile Include="code\source\mt.c" />
     <ClCompile Include="code\source\Player.cpp" />
     <ClCompile Include="code\source\Powerup.cpp" />
+    <ClCompile Include="code\source\powerups\PowerupJunkPiece.cpp" />
+    <ClCompile Include="code\source\powerups\PowerupMirror.cpp" />
+    <ClCompile Include="code\source\powerups\PowerupSpeedUp.cpp" />
     <ClCompile Include="code\source\PowerupUtils.cpp" />
     <ClCompile Include="code\source\tcyc_input.cpp" />
     <ClCompile Include="code\source\tcyc_menu.cpp" />
@@ -101,6 +104,9 @@
     <ClInclude Include="code\include\Options.h" />
     <ClInclude Include="code\include\Player.h" />
     <ClInclude Include="code\include\Powerup.h" />
+    <ClInclude Include="code\include\powerups\PowerupJunkPiece.h" />
+    <ClInclude Include="code\include\powerups\PowerupMirror.h" />
+    <ClInclude Include="code\include\powerups\PowerupSpeedUp.h" />
     <ClInclude Include="code\include\PowerupUtils.h" />
     <ClInclude Include="code\include\Profile.h" />
     <ClInclude Include="code\include\tcyc_input.h" />

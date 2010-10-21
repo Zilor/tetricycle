@@ -64,11 +64,13 @@ class Player
   {
     PlayerPowerupData() : playfieldScale(0),
                           isBigHand(false),
-                          isReverse(false) { }
+                          isReverse(false),
+                          mirrorCtr(0) { }
 
     float playfieldScale;
     bool isBigHand;
     bool isReverse;
+    u8 mirrorCtr;
   };
 
   /// Player data that needs to be reset every game should go here.

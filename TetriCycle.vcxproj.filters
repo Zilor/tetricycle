@@ -132,6 +132,15 @@
     <ClCompile Include="code\source\powerups\PowerupShrinkRay.cpp">
       <Filter>Source Files\powerups</Filter>
     </ClCompile>
+    <ClCompile Include="code\source\powerups\PowerupMirror.cpp">
+      <Filter>Source Files\powerups</Filter>
+    </ClCompile>
+    <ClCompile Include="code\source\powerups\PowerupSpeedUp.cpp">
+      <Filter>Source Files\powerups</Filter>
+    </ClCompile>
+    <ClCompile Include="code\source\powerups\PowerupJunkPiece.cpp">
+      <Filter>Source Files\powerups</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="code\include\Color.h">
@@ -222,6 +231,15 @@
       <Filter>Header Files\powerups</Filter>
     </ClInclude>
     <ClInclude Include="code\include\powerups\PowerupShrinkRay.h">
+      <Filter>Header Files\powerups</Filter>
+    </ClInclude>
+    <ClInclude Include="code\include\powerups\PowerupMirror.h">
+      <Filter>Header Files\powerups</Filter>
+    </ClInclude>
+    <ClInclude Include="code\include\powerups\PowerupSpeedUp.h">
+      <Filter>Header Files\powerups</Filter>
+    </ClInclude>
+    <ClInclude Include="code\include\powerups\PowerupJunkPiece.h">
       <Filter>Header Files\powerups</Filter>
     </ClInclude>
   </ItemGroup>
