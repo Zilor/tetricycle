@@ -180,7 +180,13 @@ void _HandlePowerups(int plyrIdx)
 
         bool success = false;
         if (targetPlayer >= 0)
+        {
+          // handle the mirror powerup
+          if (g_players[targetPlayer].gameData.powerupData.mirrorCtr)
+            targetPlayer = plyrIdx;
+
           success = player.gameData.grabbedPowerup->Initiate(targetPlayer);
+        }
 
         if (!success)
         {

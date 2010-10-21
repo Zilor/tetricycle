@@ -72,6 +72,10 @@ GuiImageData *debug_grabber2;
 GuiImageData *debug_grabber3;
 GuiImageData *debug_grabber4;
 static GuiImageData *logoImgData;
+static GuiImageData *upArrowImgData;
+static GuiImageData *upArrowOverImgData;
+static GuiImageData *downArrowImgData;
+static GuiImageData *downArrowOverImgData;
 
 // function prototypes
 static void TCYC_MenuStartup();
@@ -233,6 +237,10 @@ void TCYC_MenuLoadResources()
   debug_grabber3         = new GuiImageData(player3_grab_png);
   debug_grabber4         = new GuiImageData(player4_grab_png);
   logoImgData            = new GuiImageData(logo_alien_png);
+  upArrowImgData         = new GuiImageData(up_arrow_png);
+  upArrowOverImgData     = new GuiImageData(up_arrow_over_png);
+  downArrowImgData       = new GuiImageData(down_arrow_png);
+  downArrowOverImgData   = new GuiImageData(down_arrow_over_png);
 
   // Init the main screen background image and music.
   bgImg   = new GuiImage(tetrisLove);
@@ -244,7 +252,7 @@ void TCYC_MenuLoadResources()
 /// Displays the startup screen.
 void TCYC_MenuStartup()
 { 
-  GuiText titleTxt("TetriCycle 1.1 by calvinss4", 30, (GXColor){255, 255, 255, 255});
+  GuiText titleTxt("TetriCycle 1.2 by calvinss4", 30, (GXColor){255, 255, 255, 255});
   titleTxt.SetAlignment(ALIGN_CENTRE, ALIGN_TOP);
   titleTxt.SetPosition(0, 50);
 
@@ -1452,12 +1460,12 @@ void TCYC_MenuPowerupsPopup(GuiWindow *parentWindow,
   allOffBtn.SetEffectGrow();
 
   // SCROLL UP BUTTON
-  GuiButton scrollUpBtn(btnDataPlus->GetWidth(), btnDataPlus->GetHeight());
-  GuiImage scrollUpImg(btnDataPlus);
-  GuiImage scrollUpImgOver(btnDataPlusOver);
+  GuiButton scrollUpBtn(upArrowImgData->GetWidth(), upArrowImgData->GetHeight());
+  GuiImage scrollUpImg(upArrowImgData);
+  GuiImage scrollUpImgOver(upArrowOverImgData);
 
   scrollUpBtn.SetAlignment(ALIGN_RIGHT, ALIGN_MIDDLE);
-  scrollUpBtn.SetPosition(-10, -btnDataPlus->GetHeight() / 2);
+  scrollUpBtn.SetPosition(-10, -upArrowImgData->GetHeight() / 2 - 10);
   scrollUpBtn.SetImage(&scrollUpImg);
   scrollUpBtn.SetImageOver(&scrollUpImgOver);
   scrollUpBtn.SetSoundOver(btnSoundOver);
@@ -1465,12 +1473,12 @@ void TCYC_MenuPowerupsPopup(GuiWindow *parentWindow,
   scrollUpBtn.SetEffectGrow();
 
   // SCROLL DOWN BUTTON
-  GuiButton scrollDownBtn(btnDataMinus->GetWidth(), btnDataMinus->GetHeight());
-  GuiImage scrollDownImg(btnDataMinus);
-  GuiImage scrollDownImgOver(btnDataMinusOver);
+  GuiButton scrollDownBtn(downArrowImgData->GetWidth(), downArrowImgData->GetHeight());
+  GuiImage scrollDownImg(downArrowImgData);
+  GuiImage scrollDownImgOver(downArrowOverImgData);
 
   scrollDownBtn.SetAlignment(ALIGN_RIGHT, ALIGN_MIDDLE);
-  scrollDownBtn.SetPosition(-10, btnDataMinus->GetHeight() / 2);
+  scrollDownBtn.SetPosition(-10, downArrowImgData->GetHeight() / 2 + 10);
   scrollDownBtn.SetImage(&scrollDownImg);
   scrollDownBtn.SetImageOver(&scrollDownImgOver);
   scrollDownBtn.SetSoundOver(btnSoundOver);
@@ -1551,6 +1559,24 @@ void TCYC_MenuPowerupsPopup(GuiWindow *parentWindow,
     powerupHelpBtns[i].SetSoundOver(btnSoundOver);
     powerupHelpBtns[i].SetTrigger(trigA);
     powerupHelpBtns[i].SetEffectGrow();
+
+    int state = STATE_DEFAULT;
+    bool visible = true;
+    int ypos = top + i * btnData40x40Square->GetHeight();
+
+    // only show 6 powerups at a time
+    if (ypos < 60 || ypos > 60 + 5 * 40)
+    {
+      state = STATE_DISABLED;
+      visible = false;
+    }
+
+    powerupIconBtns[i].SetState(state);
+    powerupIconBtns[i].SetVisible(visible);
+    powerupOnBtns[i].SetState(state);
+    powerupOnBtns[i].SetVisible(visible);
+    powerupHelpBtns[i].SetState(state);
+    powerupHelpBtns[i].SetVisible(visible);
 
     window.Append(&powerupIconBtns[i]);
     window.Append(&powerupOnBtns[i]);

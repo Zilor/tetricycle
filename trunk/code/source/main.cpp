@@ -1381,7 +1381,7 @@ void TCYC_GameOnExit()
 void TCYC_InitPieceDescriptions()
 {
 	// Fill in data for every piece
-	for (int i = 0; i < TETRISPIECE_ID_MAX; ++i)
+	for (int i = 0; i < TETRISPIECE_ID_RAND_MAX; ++i)
 	{
 		// Every rotation
 		for (int rot = 0; rot < 4; ++rot)
@@ -1399,4 +1399,13 @@ void TCYC_InitPieceDescriptions()
 			}
 		}
 	}
+
+  // Init special pieces
+  TetrisPieceDesc &desc = g_pieceDesc[TETRISPIECE_ID_JUNK][0];
+  desc.map[1][1] = desc.map[2][1] = desc.map[3][1] = 
+  desc.map[1][2] =                  desc.map[3][2] = 
+  desc.map[1][3] = desc.map[2][3] = desc.map[3][3] = 1;
+
+  for (int rot = 1; rot < 4; ++rot)
+    memcpy(&g_pieceDesc[TETRISPIECE_ID_JUNK][rot], &desc, sizeof(TetrisPieceDesc));
 }
