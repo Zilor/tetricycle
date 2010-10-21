@@ -1410,7 +1410,7 @@
 <a name="l01381"></a>01381 <span class="comment"></span><span class="keywordtype">void</span> TCYC_InitPieceDescriptions()
 <a name="l01382"></a>01382 {
 <a name="l01383"></a>01383         <span class="comment">// Fill in data for every piece</span>
-<a name="l01384"></a>01384         <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; TETRISPIECE_ID_MAX; ++i)
+<a name="l01384"></a>01384         <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; TETRISPIECE_ID_RAND_MAX; ++i)
 <a name="l01385"></a>01385         {
 <a name="l01386"></a>01386                 <span class="comment">// Every rotation</span>
 <a name="l01387"></a>01387                 <span class="keywordflow">for</span> (<span class="keywordtype">int</span> rot = 0; rot &lt; 4; ++rot)
@@ -1428,10 +1428,19 @@
 <a name="l01399"></a>01399                         }
 <a name="l01400"></a>01400                 }
 <a name="l01401"></a>01401         }
-<a name="l01402"></a>01402 }
+<a name="l01402"></a>01402 
+<a name="l01403"></a>01403   <span class="comment">// Init special pieces</span>
+<a name="l01404"></a>01404   <a class="code" href="struct_tetris_piece_desc.html" title="Every piece fits into a 4x4 grid.">TetrisPieceDesc</a> &amp;desc = g_pieceDesc[TETRISPIECE_ID_JUNK][0];
+<a name="l01405"></a>01405   desc.map[1][1] = desc.map[2][1] = desc.map[3][1] = 
+<a name="l01406"></a>01406   desc.map[1][2] =                  desc.map[3][2] = 
+<a name="l01407"></a>01407   desc.map[1][3] = desc.map[2][3] = desc.map[3][3] = 1;
+<a name="l01408"></a>01408 
+<a name="l01409"></a>01409   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> rot = 1; rot &lt; 4; ++rot)
+<a name="l01410"></a>01410     memcpy(&amp;g_pieceDesc[<a class="code" href="_tetris_piece_8h.html#a8527cbbfd5ac8f6cb1f76778c97d6968afeb0a1879f691790c91e02fa9e87b203" title="junk piece (3x3 square with hollow center)">TETRISPIECE_ID_JUNK</a>][rot], &amp;desc, <span class="keyword">sizeof</span>(<a class="code" href="struct_tetris_piece_desc.html" title="Every piece fits into a 4x4 grid.">TetrisPieceDesc</a>));
+<a name="l01411"></a>01411 }
 </pre></div></div>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Tue Oct 19 2010 03:28:46 for TetriCycle by&nbsp;
+<hr class="footer"/><address class="footer"><small>Generated on Wed Oct 20 2010 17:06:58 for TetriCycle by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.1 </small></address>
 </body>

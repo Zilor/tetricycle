@@ -202,9 +202,12 @@
     <LI><OBJECT type="text/sitemap"><param name="Local" value="_player_8cpp.html"><param name="Name" value="Player.cpp"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="_powerup_8cpp.html"><param name="Name" value="Powerup.cpp"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="_powerup_big_hand_8cpp.html"><param name="Name" value="PowerupBigHand.cpp"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="_powerup_junk_piece_8cpp.html"><param name="Name" value="PowerupJunkPiece.cpp"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="_powerup_line_piece_8cpp.html"><param name="Name" value="PowerupLinePiece.cpp"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="_powerup_mirror_8cpp.html"><param name="Name" value="PowerupMirror.cpp"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="_powerup_reverse_8cpp.html"><param name="Name" value="PowerupReverse.cpp"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="_powerup_shrink_ray_8cpp.html"><param name="Name" value="PowerupShrinkRay.cpp"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="_powerup_speed_up_8cpp.html"><param name="Name" value="PowerupSpeedUp.cpp"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="_powerup_utils_8cpp.html"><param name="Name" value="PowerupUtils.cpp"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="tcyc__input_8cpp.html"><param name="Name" value="tcyc_input.cpp"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="tcyc__menu_8cpp.html"><param name="Name" value="tcyc_menu.cpp"></OBJECT>
@@ -254,25 +257,33 @@
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup.html"><param name="Name" value="GetDuration"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup.html"><param name="Name" value="Powerup"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_junk_piece.html"><param name="Name" value="PowerupJunkPiece"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_line_piece.html"><param name="Name" value="PowerupLinePiece"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_mirror.html"><param name="Name" value="PowerupMirror"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_player.html"><param name="Name" value="GetEffectQueueSlot"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup.html"><param name="Name" value="GetHelpText"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup.html"><param name="Name" value="Powerup"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_big_hand.html"><param name="Name" value="PowerupBigHand"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_junk_piece.html"><param name="Name" value="PowerupJunkPiece"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_line_piece.html"><param name="Name" value="PowerupLinePiece"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_mirror.html"><param name="Name" value="PowerupMirror"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_reverse.html"><param name="Name" value="PowerupReverse"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_shrink_ray.html"><param name="Name" value="PowerupShrinkRay"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_speed_up.html"><param name="Name" value="PowerupSpeedUp"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_utils.html"><param name="Name" value="PowerupUtils"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup.html"><param name="Name" value="GetImageData"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup.html"><param name="Name" value="Powerup"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_big_hand.html"><param name="Name" value="PowerupBigHand"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_junk_piece.html"><param name="Name" value="PowerupJunkPiece"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_line_piece.html"><param name="Name" value="PowerupLinePiece"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_mirror.html"><param name="Name" value="PowerupMirror"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_reverse.html"><param name="Name" value="PowerupReverse"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_shrink_ray.html"><param name="Name" value="PowerupShrinkRay"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_speed_up.html"><param name="Name" value="PowerupSpeedUp"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_utils.html"><param name="Name" value="PowerupUtils"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_options.html"><param name="Name" value="GetInstance"></OBJECT>
@@ -280,9 +291,12 @@
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_options.html"><param name="Name" value="Options"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup.html"><param name="Name" value="Powerup"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_big_hand.html"><param name="Name" value="PowerupBigHand"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_junk_piece.html"><param name="Name" value="PowerupJunkPiece"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_line_piece.html"><param name="Name" value="PowerupLinePiece"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_mirror.html"><param name="Name" value="PowerupMirror"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_reverse.html"><param name="Name" value="PowerupReverse"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_shrink_ray.html"><param name="Name" value="PowerupShrinkRay"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_speed_up.html"><param name="Name" value="PowerupSpeedUp"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_utils.html"><param name="Name" value="GetInvalidTargetSound"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_utils.html"><param name="Name" value="GetNextId"></OBJECT>
@@ -296,9 +310,12 @@
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup.html"><param name="Name" value="Powerup"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_big_hand.html"><param name="Name" value="PowerupBigHand"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_junk_piece.html"><param name="Name" value="PowerupJunkPiece"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_line_piece.html"><param name="Name" value="PowerupLinePiece"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_mirror.html"><param name="Name" value="PowerupMirror"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_reverse.html"><param name="Name" value="PowerupReverse"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_shrink_ray.html"><param name="Name" value="PowerupShrinkRay"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_speed_up.html"><param name="Name" value="PowerupSpeedUp"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_tetris_piece.html"><param name="Name" value="TetrisPiece"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_player.html"><param name="Name" value="GetPowerupQueueSlot"></OBJECT>
@@ -593,6 +610,18 @@
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="defines___powerup_8h.html"><param name="Name" value="PowerupId"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_tetris_piece_connectivity_info.html"><param name="Name" value="powerupId"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_junk_piece.html"><param name="Name" value="PowerupJunkPiece"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="_powerup_junk_piece_8cpp.html"><param name="Name" value="PowerupJunkPiece.cpp"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_junk_piece.html"><param name="Name" value="PowerupJunkPiece"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_junk_piece.html"><param name="Name" value="GetDuration"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_junk_piece.html"><param name="Name" value="GetHelpText"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_junk_piece.html"><param name="Name" value="GetImageData"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_junk_piece.html"><param name="Name" value="GetInstance"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_junk_piece.html"><param name="Name" value="GetPowerupId"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_junk_piece.html"><param name="Name" value="StartEffect"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_junk_piece.html"><param name="Name" value="StopEffect"></OBJECT>
+  </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_line_piece.html"><param name="Name" value="PowerupLinePiece"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="_powerup_line_piece_8cpp.html"><param name="Name" value="PowerupLinePiece.cpp"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_line_piece.html"><param name="Name" value="PowerupLinePiece"></OBJECT>
@@ -604,6 +633,18 @@
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_line_piece.html"><param name="Name" value="GetPowerupId"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_line_piece.html"><param name="Name" value="StartEffect"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_line_piece.html"><param name="Name" value="StopEffect"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_mirror.html"><param name="Name" value="PowerupMirror"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="_powerup_mirror_8cpp.html"><param name="Name" value="PowerupMirror.cpp"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_mirror.html"><param name="Name" value="PowerupMirror"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_mirror.html"><param name="Name" value="GetDuration"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_mirror.html"><param name="Name" value="GetHelpText"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_mirror.html"><param name="Name" value="GetImageData"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_mirror.html"><param name="Name" value="GetInstance"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_mirror.html"><param name="Name" value="GetPowerupId"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_mirror.html"><param name="Name" value="StartEffect"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_mirror.html"><param name="Name" value="StopEffect"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_profile.html"><param name="Name" value="powerupRate"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_reverse.html"><param name="Name" value="PowerupReverse"></OBJECT>
@@ -637,6 +678,21 @@
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_shrink_ray.html"><param name="Name" value="GetSound"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_shrink_ray.html"><param name="Name" value="StartEffect"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_shrink_ray.html"><param name="Name" value="StopEffect"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_speed_up.html"><param name="Name" value="PowerupSpeedUp"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="_powerup_speed_up_8cpp.html"><param name="Name" value="PowerupSpeedUp.cpp"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="_powerup_speed_up_8cpp.html"><param name="Name" value="g_players"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="_powerup_speed_up_8cpp.html"><param name="Name" value="SPEED_INCREMENT"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_speed_up.html"><param name="Name" value="PowerupSpeedUp"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_speed_up.html"><param name="Name" value="GetHelpText"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_speed_up.html"><param name="Name" value="GetImageData"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_speed_up.html"><param name="Name" value="GetInstance"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_speed_up.html"><param name="Name" value="GetPowerupId"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_speed_up.html"><param name="Name" value="StartEffect"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_speed_up.html"><param name="Name" value="StopEffect"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_options.html"><param name="Name" value="powerupsSize"></OBJECT>
   <UL>
@@ -701,23 +757,30 @@
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_tetris_piece.html"><param name="Name" value="SetY"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="mt_8h.html"><param name="Name" value="sgenrand"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="_powerup_shrink_ray_8cpp.html"><param name="Name" value="SHRINK_RAY_SCALE"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="_powerup_speed_up_8cpp.html"><param name="Name" value="SPEED_INCREMENT"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="defines_8h.html"><param name="Name" value="START_SPEED"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup.html"><param name="Name" value="StartEffect"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup.html"><param name="Name" value="Powerup"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_big_hand.html"><param name="Name" value="PowerupBigHand"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_junk_piece.html"><param name="Name" value="PowerupJunkPiece"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_line_piece.html"><param name="Name" value="PowerupLinePiece"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_mirror.html"><param name="Name" value="PowerupMirror"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_reverse.html"><param name="Name" value="PowerupReverse"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_shrink_ray.html"><param name="Name" value="PowerupShrinkRay"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_speed_up.html"><param name="Name" value="PowerupSpeedUp"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="defines___powerup_8h.html"><param name="Name" value="STATIC"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup.html"><param name="Name" value="StopEffect"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup.html"><param name="Name" value="Powerup"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_big_hand.html"><param name="Name" value="PowerupBigHand"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_junk_piece.html"><param name="Name" value="PowerupJunkPiece"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_line_piece.html"><param name="Name" value="PowerupLinePiece"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_mirror.html"><param name="Name" value="PowerupMirror"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_reverse.html"><param name="Name" value="PowerupReverse"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_shrink_ray.html"><param name="Name" value="PowerupShrinkRay"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_powerup_speed_up.html"><param name="Name" value="PowerupSpeedUp"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="defines_8h.html"><param name="Name" value="SWAP"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="main_8cpp.html"><param name="Name" value="TCYC_DrawText"></OBJECT>
@@ -891,6 +954,7 @@
     <LI><OBJECT type="text/sitemap"><param name="Local" value="_tetris_piece_8h.html"><param name="Name" value="g_pieceDesc"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="_tetris_piece_8h.html"><param name="Name" value="TETRISPIECE_ID_I"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="_tetris_piece_8h.html"><param name="Name" value="TETRISPIECE_ID_J"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="_tetris_piece_8h.html"><param name="Name" value="TETRISPIECE_ID_JUNK"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="_tetris_piece_8h.html"><param name="Name" value="TETRISPIECE_ID_L"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="_tetris_piece_8h.html"><param name="Name" value="TETRISPIECE_ID_O"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="_tetris_piece_8h.html"><param name="Name" value="TETRISPIECE_ID_S"></OBJECT>
@@ -916,6 +980,7 @@
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="_tetris_piece_8h.html"><param name="Name" value="TETRISPIECE_ID_I"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="_tetris_piece_8h.html"><param name="Name" value="TETRISPIECE_ID_J"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="_tetris_piece_8h.html"><param name="Name" value="TETRISPIECE_ID_JUNK"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="_tetris_piece_8h.html"><param name="Name" value="TETRISPIECE_ID_L"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="_tetris_piece_8h.html"><param name="Name" value="TETRISPIECE_ID_O"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="_tetris_piece_8h.html"><param name="Name" value="TETRISPIECE_ID_S"></OBJECT>
